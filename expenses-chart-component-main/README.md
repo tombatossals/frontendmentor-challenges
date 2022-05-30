@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/tombatossals/frontendmentor-challenges/expenses-chart-component-main)
-- Live Site URL: [Add live site URL here](https://tombatossals.github.io/frontendmentor-challenges/expenses-chart-component-main)
+- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/expenses-chart-component-main)
+- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/expenses-chart-component-main)
 
 ## My process
 
