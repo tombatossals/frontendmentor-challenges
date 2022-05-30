@@ -1,0 +1,212 @@
+:root {
+    --cream: hsl(27, 66%, 92%);
+    --medium-brown: hsl(28, 10%, 53%);
+    --dark-brown: hsl(25, 47%, 15%);
+    --soft-red: hsl(10, 79%, 65%);
+    --cyan: hsl(186, 34%, 60%);
+    --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+html {
+    font: 18px 'DM Sans', sans-serif;
+}
+
+body {
+    background-color: var(--cream);
+    padding: 0;
+    margin: 0;
+}
+
+div.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    margin: 0.5rem;
+}
+
+div.card {
+    width: 25rem;
+    min-width: 340px;
+}
+
+div.card__card-header {
+    background-color: var(--soft-red);
+    color: var(--very-pale-orange);
+    padding: 1.2rem 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+div.card__card-header h2 {
+    font-size: .8rem;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: .5em;
+}
+
+div.card__card-header .info {
+    flex: 1;
+    color: var(--cream);
+}
+
+div.card__card-header .balance {
+    font-size: 1.5rem;
+    color: var(--very-pale-orange);
+}
+
+div.card__card-header .logo {
+    display: flex;
+}
+
+div.card__card-header .circle {
+    width: 40px;
+    height: 40px;
+    display: block;
+    border-radius: 50%;
+    border: 1px solid white;
+    z-index: 20;
+}
+
+div.card__card-header .circle.two {
+    background-color: var(--dark-brown);
+    border-color: var(--dark-brown);
+    margin-left: -24px;
+    z-index: 10;
+}
+
+div.card__card-content {
+    background-color: var(--very-pale-orange);
+    color: var(--dark-brown);
+    padding: 1.2rem 1.5rem 1rem;
+    border-radius: 20px;
+}
+
+div.card__card-content h2 {
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: .5em;
+}
+
+.card__card-content__footer {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.card__card-content__footer__left {
+    flex: 1;
+}
+
+.card__card-content__footer__left h3 {
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--medium-brown);
+    margin: 0;
+}
+
+.card__card-content__chart {
+    width: 100%;
+    height: 200px;
+    border-bottom: 1px solid var(--cream);
+    margin: 1.5rem 0;
+    padding-bottom: 1rem;
+    display: flex;
+    align-items: flex-end;
+}
+
+.card__card-content__chart .day {
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+}
+
+.card__card-content__chart .day.sun {
+    margin-right: 0;
+}
+
+.card__card-content__chart .day .total {
+    height: 20px;
+    background-color: var(--dark-brown);
+    color: var(--very-pale-orange);
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s linear, opacity 0.3s linear;
+    border-radius: 5px;
+    margin-top: -1.2rem;
+    margin-bottom: .2rem;
+    margin-left: -0.4rem;
+    margin-right: 0.4rem;
+    padding: .1rem;
+    font-size: .8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card__card-content__chart .day:hover .total {
+    visibility: visible;
+    opacity: 1;
+}
+
+.card__card-content__chart .day .amount {
+    background: var(--soft-red);
+    border-radius: 5px;
+    display: block;
+    margin-right: .8rem;
+    flex: 1;
+}
+
+.card__card-content__chart .day .title {
+    margin-top: .5rem;
+    font-size: .8rem;
+    color: var(--medium-brown);
+    display: block;
+    text-align: center;
+    margin-right: .8rem;
+}
+
+.card__card-content__chart .day.actual .amount {
+    background-color: var(--cyan);
+}
+
+.card__card-content__footer__left .balance {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.card__card-content__footer__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    ;
+}
+
+.card__card-content__footer__right .percentage {
+    font-weight: 700;
+    font-size: .8rem;
+}
+
+.card__card-content__footer__right .period {
+    color: var(--medium-brown);
+    font-size: .8rem;
+}
+
+@media only screen and (max-width: 375px) {
+    div.card {
+        width: 320px;
+    }
+
+    div.card__card-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .card__card-content__chart {
+        height: 200px;
+    }
+}
