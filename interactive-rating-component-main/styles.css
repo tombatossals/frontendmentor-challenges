@@ -1,0 +1,53 @@
+:root {
+    --orange: hsl(25, 97%, 53%);
+    --white: hsl(0, 0%, 100%);
+    --light-grey: hsl(217, 12%, 63%);
+    --medium-grey: hsl(216, 12%, 54%);
+    --dark-blue: hsl(213, 19%, 18%);
+    --very-dark-blue: hsl(216, 12%, 8%);
+}
+
+html {
+    font: 15px 'Overpass', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+body {
+    background: var(--very-dark-blue);
+}
+
+main {
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: var(--dark-blue);
+    color: var(--light-grey);
+    padding: 2rem;
+    border-radius: 25px;
+    width: 20rem;
+    min-height: 22rem;
+}
+
+.card__header {
+    margin-bottom: 2rem;
+}
+
+.card__circle {
+    border-radius: 50%;
+    background: var(--medium-grey);
+    width: 2rem;
+    height: 2rem;
+}
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: var(--white);
+}
+
+.attribution a {
+    color: var(--light-grey);
+}
