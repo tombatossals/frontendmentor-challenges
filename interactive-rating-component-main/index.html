@@ -25,7 +25,7 @@
       <div class="card__quiz" :class="{ 'is-visible': submitted === false, 'is-invisible': submitted === true }">
         <div class="card__header">
           <div class="card__circle">
-            <img class="card__image" src="./images/icon-star.svg" />
+            <img alt="Star" class="card__image" src="./images/icon-star.svg" />
           </div>
         </div>
         <h1 class="card__title">How did we do?</h1>
@@ -45,15 +45,15 @@
       <!-- Rating state end -->
 
       <div class="card__result" :class="{ 'is-visible': submitted === true, 'is-invisible': submitted === false }">
-        
-        <img src="./images/illustration-thank-you.svg" />
+
+        <img alt="Thank You" src="./images/illustration-thank-you.svg" />
 
         <p class="card__subtitle">You selected {{stars}} out of 5</p>
 
         <h1 class="card__title">Thank you!</h1>
 
         <p>We appreciate you taking the time to give a rating. If you ever need more support,
-        don’t hesitate to get in touch!<p>
+          don’t hesitate to get in touch!<p>
       </div>
     </div>
   </main>
