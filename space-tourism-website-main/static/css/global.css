@@ -1,0 +1,49 @@
+:root {
+    --white: hsl(0, 0%, 100%);
+    --light-blue: hsl(231, 77%, 90%);
+    --black: hsl(230, 35%, 7%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: var(--white);
+}
+
+.heading1 {
+    font: 150px "Bellefair", serif;
+}
+
+.heading2 {
+    font: 100px "Bellefair", serif;
+}
+
+.heading3 {
+    font: 56px "Bellefair", serif;
+}
+
+.heading4 {
+    font: 32px "Bellefair", serif;
+}
+
+.heading5 {
+    font: 28px "Barlow Condensed", sans-serif;
+    letter-spacing: 4.75px;
+}
+
+.subheading1 {
+    font: 28px "Bellefair", serif;
+}
+
+.subheading2 {
+    font: 14px "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+}
+
+.navtext {
+    font: 16px "Barlow Condensed", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2.7px;
+}
