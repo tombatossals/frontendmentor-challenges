@@ -20,51 +20,40 @@
 </head>
 
 <body>
-
-  <main>
+  <main id="app">
     <div class="card">
-      <div class="card__header">
-        <div class="card__circle">
-          <img class="card__circle-star" src="./images/icon-star.svg" />
+      <div class="card__quiz" :class="{ 'is-visible': submitted === false, 'is-invisible': submitted === true }">
+        <div class="card__header">
+          <div class="card__circle">
+            <img class="card__image" src="./images/icon-star.svg" />
+          </div>
         </div>
+        <h1 class="card__title">How did we do?</h1>
+
+        <p>Please let us know how we did with your support request. All feedback is appreciated
+          to help us improve our offering!</p>
+
+        <ul class="card__rating">
+          <li v-for="number in [1, 2, 3, 4, 5]" v-on:click="setStars(number)" class="card__circle"
+            :class="{ 'is-active': stars === number}">
+            <div class="card__number">{{number}}</div>
+          </li>
+        </ul>
+
+        <button class="card__button" v-on:click="submitted=true">Submit</button>
       </div>
-      <h1 class="card__title">How did we do?</h1>
-
-      <p class="card__subtitle">Please let us know how we did with your support request. All feedback is appreciated
-        to help us improve our offering!</p>
-
-      <div class="card__rating">
-        <div class="card__circle">
-          <div class="card__circle-number">1</div>
-        </div>
-        <div class="card__circle">
-          <div class="card__circle-number">2</div>
-        </div>
-        <div class="card__circle">
-          <div class="card__circle-number">3</div>
-        </div>
-        <div class="card__circle">
-          <div class="card__circle-number">4</div>
-        </div>
-        <div class="card__circle">
-          <div class="card__circle-number">5</div>
-        </div>
-      </div>
-
-      <button class="card__button">Submit</button>
-
       <!-- Rating state end -->
 
-      <div class="card__result">
-        <!-- Thank you state start -->
+      <div class="card__result" :class="{ 'is-visible': submitted === true, 'is-invisible': submitted === false }">
+        
+        <img src="./images/illustration-thank-you.svg" />
 
-        You selected
-        <!-- Add rating here --> out of 5
+        <p class="card__subtitle">You selected {{stars}} out of 5</p>
 
-        Thank you!
+        <h1 class="card__title">Thank you!</h1>
 
-        We appreciate you taking the time to give a rating. If you ever need more support,
-        don’t hesitate to get in touch!
+        <p>We appreciate you taking the time to give a rating. If you ever need more support,
+        don’t hesitate to get in touch!<p>
       </div>
     </div>
   </main>

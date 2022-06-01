@@ -10,10 +10,6 @@
 
 html {
     font: 15px 'Overpass', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
 }
 
 body {
@@ -22,44 +18,58 @@ body {
 
 main {
     margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .card {
     background: var(--dark-blue);
     color: var(--light-grey);
     padding: 2rem;
-    border-radius: 25px;
-    width: 22rem;
+    border-radius: 28px;
+    width: 23rem;
+    line-height: 1.5rem;
+    overflow: hidden;
 }
 
 .card__header {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 }
 
 .card__circle {
     border-radius: 50%;
     background: var(--light-blue);
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
     position: relative;
+    transition: background 200ms linear;
+}
+
+.card__circle.is-active {
+    background: var(--medium-grey);
+    color: var(--white);
 }
 
 .card__title {
     color: var(--white);
+    margin: 1rem 0 1rem;
 }
 
 .card__button {
     background: var(--orange);
     color: var(--white);
     width: 100%;
-    border-radius: 16px;
+    border-radius: 2rem;
     font-size: 1rem;
     border: 0px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    padding: .5rem 0;
+    padding: .8rem 0;
     margin-top: 1rem;
     margin: auto;
+    font-weight: bold;
 }
 
 .card__button:hover {
@@ -68,13 +78,22 @@ main {
     cursor: pointer;
 }
 
+.card__rating .card__circle:hover {
+    background: var(--orange);
+    color: white;
+    cursor: pointer;
+}
+
 .card__rating {
     display: flex;
     justify-content: space-between;
+    padding: 0;
+    margin: 0;
     margin-bottom: 2rem;
+    list-style: none;
 }
 
-.card__circle-star {
+.card__image {
     position: absolute;
     left: calc(50% - 0.5rem);
     top: calc(50% - 0.5rem);
@@ -82,16 +101,41 @@ main {
     height: 1rem;
 }
 
-.card__circle-number {
+.card__subtitle {
+    background: var(--light-blue);
+    color: var(--orange);
+    line-height: 2.2rem;
+    border-radius: 1rem;
+    padding: 0 1rem;
+    margin: 2rem 0;
+    display: inline-block;
+}
+
+.card__number {
     position: absolute;
-    left: calc(50% - 0.5rem);
-    top: calc(50% - 0.5rem);
+    left: calc(50% - 0.25rem);
+    top: calc(50% - 0.6rem);
+    font-weight: bold;
     width: 1rem;
     height: 1rem;
 
 }
 
 .card__result {
-    visibility: hidden;
     display: none;
+    text-align: center;
+}
+
+.is-visible {
+    opacity: 1;
+    display: block;
+}
+
+.is-invisible {
+    opacity: 0;
+    display: none;
+}
+
+@media only screen and (max-width: 375px) {
+
 }
