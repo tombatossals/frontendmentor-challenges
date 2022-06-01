@@ -51,11 +51,6 @@ main {
     transition: background 200ms linear;
 }
 
-.card__circle.is-active {
-    background: var(--medium-grey);
-    color: var(--white);
-}
-
 .card__title {
     color: var(--white);
     margin: 1rem 0 1rem;
@@ -83,9 +78,14 @@ main {
 }
 
 .card__rating .card__circle:hover {
-    background: var(--orange);
+    background: var(--medium-grey);
     color: white;
     cursor: pointer;
+}
+
+.card__circle.is-active {
+    background: var(--orange) !important;
+    color: var(--white);
 }
 
 .card__rating {
