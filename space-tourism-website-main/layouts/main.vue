@@ -11,11 +11,18 @@
         href="static/assets/favicon-32x32.png"
       />
 
+      <Link rel="preconnect" href="https://fonts.googleapis.com" />
+      <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <Link
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+        rel="stylesheet"
+      />
+
       <Title>Frontend Mentor | Space tourism website</Title>
     </Head>
     <div class="header">
       <div class="header__logo">
-        <img src="static/assets/shared/logo.svg" />
+        <img alt="Logo" src="@/static/assets/shared/logo.svg" />
       </div>
       <ul class="header__menu navtext">
         <li><span class="number">00</span> Home</li>

@@ -45,6 +45,6 @@ Users should be able to:
 
 ## Author
 
-- Website - [tombatossals](https://github.com/tombatossals)
+- Website - [tombatossals](https://github.com/tombatossals/frontendmentor-challenges)
 - Frontend Mentor - [@tombatossals](https://www.frontendmentor.io/profile/tombatossals)
 - Twitter - [@tombatossals](https://www.twitter.com/tombatossals)

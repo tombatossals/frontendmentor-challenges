@@ -1,6 +1,6 @@
 # Frontend Mentor - Interactive rating component solution
 
-This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Interactive rating component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-rating-component-koxpeBUmI). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/tree/main/interactive-rating-component-main)
-- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/interactive-rating-component-main)
+- [Solution URL](https://github.com/tombatossals/frontendmentor-challenges/tree/main/interactive-rating-component-main)
+- [Live Site URL](https://tombatossals.github.io/frontendmentor-challenges/interactive-rating-component-main)
 
 ## My process
 
@@ -45,9 +45,8 @@ Users should be able to:
 
 ### What I learned
 
-* BEM
-* My first steps with Vue.JS
-
+- BEM
+- My first steps with Vue.JS
 
 ### Useful resources
 
@@ -59,7 +58,7 @@ Users should be able to:
 
 - Website - [tombatossals](https://github.com/tombatossals/frontendmentor-challenges)
 - Frontend Mentor - [@tombatossals](https://www.frontendmentor.io/profile/tombatossals)
-- Twitter - [@tombatossals](https://www.twitter.com/tombatossals)
+- Github - [tombatossals](https://github.com/tombatossals)
 
 **Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
 
