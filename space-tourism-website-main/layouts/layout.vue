@@ -32,7 +32,12 @@
           <NuxtLink class="header__menuitem" to="/"
             ><span class="header__menuitem__number">00</span> Home</NuxtLink
           >
-          <NuxtLink class="header__menuitem" to="/destination/moon"
+          <NuxtLink
+            class="header__menuitem"
+            to="/destination/moon"
+            :class="
+              $route.path.search('destination') !== -1 && 'router-link-active'
+            "
             ><span class="header__menuitem__number">01</span>
             Destination</NuxtLink
           >
@@ -70,11 +75,11 @@
 }
 
 .header__line {
-  height: 2px;
+  height: 1px;
   width: 100%;
   flex: 1;
   margin-left: 8rem;
-  background-color: var(--white);
+  background-color: rgba(255, 255, 255, 0.25);
   z-index: 10;
 }
 
@@ -86,10 +91,10 @@
   position: relative;
   display: flex;
   list-style: none;
-  flex: 1;
-  justify-content: space-around;
+  flex: 2;
+  justify-content: space-evenly;
   margin-left: -2rem;
-  padding: 0 8rem;
+  padding: 0 4rem 0 0;
   backdrop-filter: blur(8px);
 }
 
@@ -113,7 +118,7 @@
 }
 
 .header__menuitem:hover {
-  border-bottom: 4px solid var(--light-grey);
+  border-bottom: 4px solid rgba(255, 255, 255, 0.25);
 }
 
 .header__menuitem__number {

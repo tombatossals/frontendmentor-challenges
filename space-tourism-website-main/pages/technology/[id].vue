@@ -10,7 +10,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   background: url(/static/assets/home/background-home-desktop.jpg) no-repeat
     center center fixed;

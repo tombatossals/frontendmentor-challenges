@@ -2,7 +2,6 @@
     --white: hsl(0, 0%, 100%);
     --light-blue: hsl(231, 77%, 90%);
     --black: hsl(230, 35%, 7%);
-    --light-grey: #F2F2F2;
 }
 
 * {
@@ -22,6 +21,7 @@ h1, h2, h3 {
 .heading1 {
     font: 150px "Bellefair", serif;
     text-transform: uppercase;
+    color: var(--white);
 }
 
 .heading2 {
@@ -43,7 +43,6 @@ h1, h2, h3 {
     font: 28px "Barlow Condensed", sans-serif;
     letter-spacing: 4.75px;
     text-transform: uppercase;
-    color: var(--light-blue);
 }
 
 .subheading1 {

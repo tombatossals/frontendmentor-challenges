@@ -19,13 +19,23 @@
   </div>
 </template>
 
-<style scoped>
-body {
+<script>
+export default {
+  beforeCreate() {
+    if (process.client) {
+      document.body.className = "home";
+    }
+  },
+};
+</script>
+<style>
+body.home {
   background: url(/static/assets/home/background-home-desktop.jpg) no-repeat
     center center fixed;
   background-size: cover;
 }
-
+</style>
+<style scoped>
 .main {
   display: flex;
 }
@@ -73,5 +83,6 @@ body {
 
 .main__description {
   width: 27.8rem;
+  color: var(--light-blue);
 }
 </style>
