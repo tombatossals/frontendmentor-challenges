@@ -8,51 +8,115 @@
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="static/assets/favicon-32x32.png"
+        href="/static/assets/favicon-32x32.png"
       />
 
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <Link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed&family=Bellefair&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
         rel="stylesheet"
       />
 
       <Title>Frontend Mentor | Space tourism website</Title>
     </Head>
-    <div class="header">
-      <div class="header__logo">
-        <img alt="Logo" src="@/static/assets/shared/logo.svg" />
+
+    <div class="layout__main">
+      <div class="header">
+        <div class="header__logo">
+          <img alt="Logo" src="@/static/assets/shared/logo.svg" />
+        </div>
+        <div class="header__line"></div>
+        <div class="header__menu navtext">
+          <div class="header__menu__background"></div>
+          <NuxtLink class="header__menuitem" to="/"
+            ><span class="header__menuitem__number">00</span> Home</NuxtLink
+          >
+          <NuxtLink class="header__menuitem" to="/destination/moon"
+            ><span class="header__menuitem__number">01</span>
+            Destination</NuxtLink
+          >
+          <NuxtLink class="header__menuitem" to="/crew/moon"
+            ><span class="header__menuitem__number">02</span> Crew</NuxtLink
+          >
+          <NuxtLink class="header__menuitem" to="/technology/moon"
+            ><span class="header__menuitem__number">03</span>
+            Technology</NuxtLink
+          >
+        </div>
       </div>
-      <ul class="header__menu navtext">
-        <li><span class="number">00</span> Home</li>
-        <li><span class="number">01</span> Destination</li>
-        <li><span class="number">02</span> Crew</li>
-        <li><span class="number">03</span> Technology</li>
-      </ul>
+      <slot />
     </div>
-    <slot />
   </div>
 </template>
 
 <style>
+.layout__main {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: space-between;
+}
+
 .header {
   margin: 40px 0 0 55px;
   color: var(--white);
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .header__logo {
+}
+
+.header__line {
+  height: 2px;
+  width: 100%;
   flex: 1;
+  margin-left: 8rem;
+  background-color: var(--white);
+  z-index: 10;
+}
+
+.router-link-active {
+  border-bottom: 4px solid var(--white) !important;
 }
 
 .header__menu {
+  position: relative;
   display: flex;
   list-style: none;
   flex: 1;
   justify-content: space-around;
-  backdrop-filter: blur(48px);
-  padding: 2rem;
+  margin-left: -2rem;
+  padding: 0 8rem;
+  backdrop-filter: blur(8px);
+}
+
+.header__menu__background {
+  position: absolute;
+  background: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.1;
+}
+
+.header__menuitem {
+  color: var(--white);
+  text-decoration: none;
+  display: block;
+  padding: 2rem 0;
+  border-bottom: 4px solid transparent;
+  z-index: 10;
+}
+
+.header__menuitem:hover {
+  border-bottom: 4px solid var(--light-grey);
+}
+
+.header__menuitem__number {
+  font-weight: bold;
 }
 </style>

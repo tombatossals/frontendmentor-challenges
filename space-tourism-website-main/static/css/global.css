@@ -2,6 +2,7 @@
     --white: hsl(0, 0%, 100%);
     --light-blue: hsl(231, 77%, 90%);
     --black: hsl(230, 35%, 7%);
+    --light-grey: #F2F2F2;
 }
 
 * {
@@ -10,27 +11,39 @@
 
 body {
     color: var(--white);
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    margin: 0;
 }
 
 .heading1 {
     font: 150px "Bellefair", serif;
+    text-transform: uppercase;
 }
 
 .heading2 {
     font: 100px "Bellefair", serif;
+    text-transform: uppercase;
 }
 
 .heading3 {
     font: 56px "Bellefair", serif;
+    text-transform: uppercase;
 }
 
 .heading4 {
     font: 32px "Bellefair", serif;
+    text-transform: uppercase;
 }
 
 .heading5 {
     font: 28px "Barlow Condensed", sans-serif;
     letter-spacing: 4.75px;
+    text-transform: uppercase;
+    color: var(--light-blue);
 }
 
 .subheading1 {
@@ -40,6 +53,13 @@ body {
 .subheading2 {
     font: 14px "Barlow Condensed", sans-serif;
     text-transform: uppercase;
+}
+
+.normaltext {
+    font: 18px "Barlow Condensed", sans-serif;
+    color: var(--light-blue);
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
 }
 
 .navtext {
