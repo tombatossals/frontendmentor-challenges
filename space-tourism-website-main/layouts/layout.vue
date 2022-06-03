@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .layout__main {
   display: flex;
   flex-direction: column;

@@ -1,8 +1,3 @@
-<script setup>
-const { error, data } = await useFetch("/static/data.json");
-console.log(error);
-</script>
-
 <template>
   <div class="main">
     <div class="main__content">
@@ -10,12 +5,10 @@ console.log(error);
         <h3 class="heading5">So, you want to travel to</h3>
         <h1 class="heading1">Space</h1>
         <p class="normaltext">
-          {{ data }}
           Let’s face it; if you want to go to space, you might as well genuinely
           go to outer space and not hover kind of on the edge of it. Well sit
           back, and relax because we’ll give you a truly out of this world
           experience!
-          {{ data && data.destinations }}
         </p>
       </div>
     </div>
@@ -26,7 +19,7 @@ console.log(error);
   </div>
 </template>
 
-<style>
+<style scoped>
 body {
   background: url(/static/assets/home/background-home-desktop.jpg) no-repeat
     center center fixed;
