@@ -23,9 +23,9 @@
 
     <div class="layout">
       <div class="header">
-        <div class="header__logo">
+        <NuxtLink to="/" class="header__logo">
           <img alt="Logo" src="@/static/assets/shared/logo.svg" />
-        </div>
+        </NuxtLink>
         <div class="header__line"></div>
         <div class="header__menu__burguer">
           <div class="menu__burguer__icon"></div>
@@ -80,7 +80,7 @@
 
 .header {
   flex: 0;
-  margin: 2rem 1.5rem 2rem;
+  margin: 0 1.5rem 2rem;
   color: var(--white);
   display: flex;
   justify-content: space-between;
@@ -144,7 +144,7 @@
   display: inline-block;
   cursor: pointer;
   position: absolute;
-  top: 2rem;
+  top: 1.5rem;
   right: 1.5rem;
 }
 
@@ -167,7 +167,7 @@
   }
 
   .header {
-    margin: 2rem 1.5rem;
+    margin: 1.5rem;
   }
 
   .header__logo {

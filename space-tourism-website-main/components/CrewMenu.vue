@@ -13,16 +13,17 @@ export default {
 <style scoped>
 .menu__crew {
   display: flex;
+  align-items: stretch;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 1rem;
+  margin: 1rem;
+  flex: 1;
 }
 
 .menu__item {
   display: block;
   margin-right: 1rem;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.8rem;
+  height: 0.8rem;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.25);
 }
@@ -37,7 +38,7 @@ export default {
 
 @media only screen and (min-width: 851px) {
   .menu__crew {
-    justify-content: flex-start;
+    justify-content: stretch;
   }
 }
 </style>

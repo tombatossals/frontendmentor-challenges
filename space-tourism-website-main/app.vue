@@ -1,7 +1,5 @@
 <script setup>
-const { error, data } = await useFetch(
-  "https://tombatossals.github.io/frontendmentor-challenges/space-tourism-website-main/static/data.json"
-);
+const data = await import("/static/data.json");
 </script>
 
 <template>

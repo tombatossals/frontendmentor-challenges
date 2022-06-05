@@ -1,21 +1,26 @@
 <template>
   <div class="main">
-    <div class="main__title heading5">
-      <span class="main__title__number">02</span>Meet your crew
-    </div>
     <div class="main__content">
-      <div class="main__crew">
-        <img :alt="role.name" :src="role.images.png" />
+      <div class="main__title heading5 hide-small">
+        <span class="main__title__number">02</span>Meet your crew
       </div>
-      <div class="crew__border"></div>
+      <div class="crew__border hide-small"></div>
+      <CrewMenu v-if="crew" :items="crew" class="hide-menu"></CrewMenu>
+
       <div class="crew__description">
         <div class="crew__text">
-          <h2 class="heading5">{{ role.role }}</h2>
-          <h1 class="heading4">{{ role.name }}</h1>
+          <h2 class="heading4">{{ role.role }}</h2>
+          <h1 class="heading3">{{ role.name }}</h1>
           <p class="normaltext">{{ role.bio }}</p>
-          <CrewMenu v-if="crew" :items="crew"></CrewMenu>
         </div>
       </div>
+      <CrewMenu v-if="crew" :items="crew" class="hide-small"></CrewMenu>
+    </div>
+    <div class="main__crew">
+      <img :alt="role.name" :src="role.images.png" />
+    </div>
+    <div class="main__title heading5 hide-full">
+      <span class="main__title__number">02</span>Meet your crew
     </div>
   </div>
 </template>
@@ -37,46 +42,70 @@ export default {
 };
 </script>
 <style>
-body.crew {
-  background: url(/static/assets/crew/background-crew-desktop.jpg) no-repeat
-    center center fixed;
-  background-size: cover;
+@media only screen and (max-width: 450px) {
+  body.crew {
+    background: url(/static/assets/crew/background-crew-mobile.jpg) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  body.crew {
+    background: url(/static/assets/crew/background-crew-tablet.jpg) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 851px) {
+  body.crew {
+    background: url(/static/assets/crew/background-crew-desktop.jpg) no-repeat
+      center center fixed;
+    background-size: cover;
+  }
 }
 </style>
 <style scoped>
 .main__content {
+  align-self: stretch;
   display: flex;
   flex-direction: column;
-  width: 100%;
   flex: 1;
 }
 
+.main__crew {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 0;
+}
 .main__crew img {
-  width: 11rem;
+  max-height: 14rem;
 }
 .crew__description {
-  flex: 1;
-  display: flex;
-  justify-content: left;
-  margin-bottom: 2rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-}
-
-.heading2 {
-  text-align: center;
-}
-.crew__full {
-  color: var(--light-blue) !important;
-}
-
-.main {
+  flex: 2;
   display: flex;
   flex-direction: column;
+  justify-content: left;
+  margin-bottom: 2rem;
+}
+
+.heading4 {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.heading3  {
+  white-space: nowrap;
+}
+.main {
+  display: flex;
+  flex-direction: column-reverse;
   justify-content: flex-start;
   align-items: center;
   text-align: center;
   margin: 0 1.5rem;
+  flex: 1;
 }
 
 .crew__description {
@@ -85,27 +114,7 @@ body.crew {
 .crew__border {
   height: 1px;
   width: 100%;
-  flex: 1;
   background-color: rgba(255, 255, 255, 0.25);
-}
-
-.crew__info {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.crew__distance {
-  margin-bottom: 2rem;
-}
-
-.crew__info .subheading2 {
-  color: var(--light-blue);
-}
-.crew__distance,
-.crew__travel {
-  flex: 1;
 }
 
 .main__title__number {
@@ -113,51 +122,70 @@ body.crew {
   opacity: 0.25;
 }
 
+.main__title {
+  width: 100%;
+}
+
+@media only screen and (max-width: 450px) {
+  .hide-small {
+    display: none;
+  }
+}
+
 @media only screen and (min-width: 451px) {
   .main__title {
     margin-bottom: 4rem;
   }
   .main {
-    height: 80vh;
     align-items: flex-start;
+    flex-direction: column;
     margin: 0 4rem;
+    text-align: left;
   }
 
-  .main__crew img {
-    width: 20rem;
-  }
-
-  .crew__info {
-    flex-direction: row;
-  }
-}
-
-@media only screen and (min-width: 1150px) {
   .main__content {
-    flex-direction: row-reverse;
+    flex: 0;
   }
-
-  .main__crew {
-    position: relative;
-  }
-
   .main__crew img {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    max-width: 30rem;
+    max-height: 10rem;
+  }
+
+  .crew__description {
+    text-align: center;
   }
 
   .crew__border {
     display: none;
   }
-  .main__title {
-    margin: 2rem 10rem;
+
+  .hide-menu {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .main {
+    flex-direction: row;
+    align-items: flex-end;
+    margin: 2rem 0 0 6rem;
+    text-align: left;
   }
 
-  .main__crew {
+  .main__title {
     flex: 1;
-    margin-top: 3rem;
+    margin-bottom: 0;
+  }
+
+  .main__content {
+    flex: 1;
+  }
+  .main__crew {
+    align-items: flex-end;
+    justify-content: stretch;
+    flex: 1;
+  }
+  .main__crew img {
+    max-height: 38rem;
   }
 
   .crew__text {
@@ -169,8 +197,8 @@ body.crew {
     width: auto;
   }
 
-  .heading2 {
-    text-align: left;
+  .hide-full {
+    display: none;
   }
 }
 </style>

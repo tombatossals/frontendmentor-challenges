@@ -49,10 +49,28 @@ export default {
 };
 </script>
 <style>
-body.destination {
-  background: url(/static/assets/destination/background-destination-desktop.jpg)
-    no-repeat center center fixed;
-  background-size: cover;
+@media only screen and (max-width: 450px) {
+  body.destination {
+    background: url(/static/assets/destination/background-destination-mobile.jpg)
+      no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  body.destination {
+    background: url(/static/assets/destination/background-destination-tablet.jpg)
+      no-repeat center center fixed;
+    background-size: cover;
+  }
+}
+
+@media only screen and (min-width: 851px) {
+  body.destination {
+    background: url(/static/assets/destination/background-destination-desktop.jpg)
+      no-repeat center center fixed;
+    background-size: cover;
+  }
 }
 </style>
 <style scoped>
@@ -74,7 +92,6 @@ body.destination {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
-  margin-left: 2rem;
 }
 
 .heading2 {
@@ -110,12 +127,12 @@ body.destination {
   justify-content: flex-start;
 }
 
-.destination__distance {
-  margin-bottom: 2rem;
-}
-
 .destination__info .subheading2 {
   color: var(--light-blue);
+}
+
+p.subheading1 {
+  margin: 0.5rem 0 2rem;
 }
 .destination__distance,
 .destination__travel {
