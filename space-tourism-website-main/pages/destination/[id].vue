@@ -1,11 +1,11 @@
 <template>
-  <div class="main__destination">
+  <div class="main">
     <div class="main__title heading5">
       <span class="main__title__number">01</span>Pick your destination
     </div>
     <div class="main__content">
       <div class="main__planet">
-        <img :src="planet.images.png" />
+        <img :alt="planet.name" :src="planet.images.png" />
       </div>
       <div class="destination__description">
         <div class="destination__text">
@@ -16,11 +16,11 @@
           <div class="destination__info">
             <div class="destination__distance">
               <div class="subheading2">Avg. Distance</div>
-              <p class="nomargin subheading1">{{ planet.distance }}</p>
+              <p class="subheading1">{{ planet.distance }}</p>
             </div>
             <div class="destination__travel">
               <div class="subheading2">Est. Travel Time</div>
-              <p class="nomargin subheading1">{{ planet.travel }}</p>
+              <p class="subheading1">{{ planet.travel }}</p>
             </div>
           </div>
         </div>
@@ -56,46 +56,46 @@ body.destination {
 }
 </style>
 <style scoped>
-.main__title {
-  flex: 1;
-  margin: 4rem 0 2rem;
-}
-
 .main__content {
   display: flex;
+  flex-direction: column;
   width: 100%;
   flex: 1;
 }
 
 .main__planet {
-  flex: 1;
-  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
-
+.main__planet img {
+  width: 11rem;
+}
 .destination__description {
   flex: 1;
   display: flex;
-  justify-content: left;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
 }
 
-.destination__text {
-  width: 28rem;
-  text-align: left;
+.heading2 {
+  text-align: center;
 }
-
 .destination__full {
   color: var(--light-blue) !important;
 }
 
-.main__destination {
+.main {
   display: flex;
   flex-direction: column;
-  height: 80vh;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 10rem;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  margin: 0 1.5rem;
 }
 
+.destination__description {
+  flex: 1;
+}
 .destination__border {
   height: 1px;
   width: 100%;
@@ -106,19 +106,75 @@ body.destination {
 .destination__info {
   margin-top: 2rem;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
 }
 
+.destination__distance {
+  margin-bottom: 2rem;
+}
+
+.destination__info .subheading2 {
+  color: var(--light-blue);
+}
 .destination__distance,
 .destination__travel {
   flex: 1;
 }
 
-.nomargin {
-  margin: 0.5rem 0 0 0;
-}
 .main__title__number {
   margin-right: 1rem;
   opacity: 0.25;
+}
+
+@media only screen and (min-width: 451px) {
+  .main__title {
+    margin-bottom: 4rem;
+  }
+  .main {
+    height: 80vh;
+    align-items: flex-start;
+    margin: 0 4rem;
+  }
+
+  .main__planet img {
+    width: 20rem;
+  }
+
+  .destination__info {
+    flex-direction: row;
+  }
+}
+
+@media only screen and (min-width: 1150px) {
+  .main {
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .main__content {
+    flex-direction: row;
+  }
+
+  .main__title {
+    margin: 2rem 8rem;
+  }
+
+  .main__planet {
+    flex: 1;
+    margin-top: 3rem;
+  }
+
+  .destination__text {
+    width: 28rem;
+    text-align: left;
+  }
+
+  .main__planet img {
+    width: auto;
+  }
+
+  .heading2 {
+    text-align: left;
+  }
 }
 </style>

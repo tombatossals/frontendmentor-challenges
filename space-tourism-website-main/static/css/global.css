@@ -12,7 +12,20 @@ body {
     color: var(--white);
     margin: 0;
     padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
+#__nuxt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #__nuxt > div {
+      flex: 1;  }
+  
 
 h1, h2, h3 {
     margin: 0;
@@ -65,4 +78,29 @@ h1, h2, h3 {
     font: 16px "Barlow Condensed", sans-serif;
     text-transform: uppercase;
     letter-spacing: 2.7px;
+}
+
+@media only screen and (max-width: 450px) {
+    .heading5  {
+        font-size: 16px;
+        letter-spacing: 2.7px;
+        margin-bottom: 2rem;
+      }
+    
+      .heading2 {
+          font-size: 56px;
+      }
+
+      .heading1 {
+        font-size: 80px;
+      }
+    
+      .normaltext {
+        font-size: 15px;
+        line-height: 27px;
+      }
+      .heading4 {
+        font-size: 1.2rem;
+      }
+    
 }
