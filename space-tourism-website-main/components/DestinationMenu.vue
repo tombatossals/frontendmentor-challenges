@@ -27,7 +27,6 @@ export default {
   padding: 0.8rem 0;
   margin-right: 2rem;
   border-bottom: 4px solid transparent;
-  z-index: 10;
 }
 
 .menu__item:hover {
