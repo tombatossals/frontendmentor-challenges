@@ -18,7 +18,7 @@ export default {
   align-items: stretch;
   justify-content: center;
   margin: 2rem;
-  flex: 1;
+  flex: 0;
 }
 
 .menu__item {
@@ -38,11 +38,22 @@ export default {
   color: #0b0d17;
 }
 
+@media only screen and (min-width: 451px) {
+  .menu__item {
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.6rem;
+    margin: 2rem 1rem;
+  }
+}
+
 @media only screen and (min-width: 851px) {
   .menu__technology {
     justify-content: space-evenly;
     flex-direction: column;
     align-items: space-around;
+    margin: 0;
   }
 
   .menu__item {

@@ -1,22 +1,16 @@
 <template>
   <div>
+
     <Head>
       <Meta charset="UTF-8" />
       <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <Link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="/static/assets/favicon-32x32.png"
-      />
+      <Link rel="icon" type="image/png" sizes="32x32" href="/static/assets/favicon-32x32.png" />
 
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <Link
-        href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
-        rel="stylesheet"
-      />
+      <Link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap"
+        rel="stylesheet" />
 
       <Title>Frontend Mentor | Space tourism website</Title>
     </Head>
@@ -35,33 +29,18 @@
 
         <div class="header__menu navtext">
           <div class="header__menu__background"></div>
-          <NuxtLink class="header__menuitem" to="/"
-            ><span class="header__menuitem__number">00</span> Home</NuxtLink
-          >
-          <NuxtLink
-            class="header__menuitem"
-            to="/destination/moon"
-            :class="
-              $route.path.search('destination') !== -1 && 'router-link-active'
-            "
-            ><span class="header__menuitem__number">01</span>
-            Destination</NuxtLink
-          >
-          <NuxtLink
-            class="header__menuitem"
-            to="/crew/commander"
-            :class="$route.path.search('crew') !== -1 && 'router-link-active'"
-            ><span class="header__menuitem__number">02</span> Crew</NuxtLink
-          >
-          <NuxtLink
-            class="header__menuitem"
-            to="/technology/launch-vehicle"
-            :class="
-              $route.path.search('technology') !== -1 && 'router-link-active'
-            "
-            ><span class="header__menuitem__number">03</span>
-            Technology</NuxtLink
-          >
+          <NuxtLink class="header__menuitem" to="/"><span class="header__menuitem__number">00</span> Home</NuxtLink>
+          <NuxtLink class="header__menuitem" to="/destination/moon" :class="
+            $route.path.search('destination') !== -1 && 'router-link-active'
+          "><span class="header__menuitem__number">01</span>
+            Destination</NuxtLink>
+          <NuxtLink class="header__menuitem" to="/crew/commander"
+            :class="$route.path.search('crew') !== -1 && 'router-link-active'"><span
+              class="header__menuitem__number">02</span> Crew</NuxtLink>
+          <NuxtLink class="header__menuitem" to="/technology/launch-vehicle" :class="
+            $route.path.search('technology') !== -1 && 'router-link-active'
+          "><span class="header__menuitem__number">03</span>
+            Technology</NuxtLink>
         </div>
       </div>
       <slot />
@@ -76,6 +55,7 @@
   justify-content: stretch;
   flex: 1;
   min-height: 100vh;
+  min-width: 370px;
 }
 
 .header {
@@ -141,11 +121,8 @@
 }
 
 .header__menu__burguer {
-  display: inline-block;
+  justify-self: flex-end;
   cursor: pointer;
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
 }
 
 .menu__burguer__icon {
@@ -168,6 +145,8 @@
 
   .header {
     margin: 1.5rem;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .header__logo {
@@ -175,9 +154,9 @@
   }
 
   .header__logo img {
-    flex: 1;
     width: 2.5rem;
   }
+
   .header__line {
     display: none;
   }
@@ -188,9 +167,11 @@
     margin-right: 0;
     margin-left: 4rem;
   }
+
   .header__logo {
     flex: 1;
   }
+
   .header__logo img {
     flex: 1;
     width: 3.5rem;
@@ -205,6 +186,7 @@
   .header {
     margin: 40px 0 0 55px;
   }
+
   .header__menuitem__number {
     display: inline;
   }

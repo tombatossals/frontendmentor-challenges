@@ -13,7 +13,9 @@
       <div class="technology__text">
         <h2 class="navtext">the terminology...</h2>
         <h1 class="heading3">{{ technology.name }}</h1>
-        <p class="normaltext">{{ technology.description }}</p>
+        <p class="normaltext">
+          {{ technology.description }}
+        </p>
       </div>
     </div>
   </div>
@@ -113,8 +115,18 @@ export default {
   opacity: 0.25;
 }
 
+.navtext {
+  color: var(--light-blue);
+  margin-bottom: 1rem;
+}
+
+.technology__text {
+  margin: 0 2rem;
+}
+
 .main__title {
-  width: 100%;
+  align-self: flex-start;
+  margin-left: 4rem;
 }
 
 .landscape {
@@ -126,9 +138,6 @@ export default {
 }
 
 @media only screen and (min-width: 451px) {
-  .main__title {
-    margin-bottom: 4rem;
-  }
 
   .main {
     align-items: center;
@@ -142,24 +151,29 @@ export default {
   }
 
   .main__technology {
-    flex: 1;
     justify-content: center;
     text-align: center;
     width: 100%;
   }
 
   .main__technology img {
-    object-fit: cover;
     width: 100%;
+    min-height: 20rem;
   }
 
   .technology__description {
     text-align: center;
-    margin: 0 6rem;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
   }
 
   .technology__border {
     display: none;
+  }
+
+  .technology__text {
+    max-width: 60%;
   }
 }
 
@@ -167,17 +181,12 @@ export default {
   .main {
     flex-direction: column;
     text-align: left;
-    margin: 0 0 0 12rem;
+    margin: 0 0 0 10rem;
   }
 
   .technology__menu {
     order: 1;
     flex: 0;
-  }
-
-  .navtext {
-    color: var(--light-blue);
-    margin-bottom: 1rem;
   }
 
   .heading3 {
@@ -212,7 +221,7 @@ export default {
   .main__technology img {
     max-width: 100%;
     object-fit: cover;
-    min-height: 40rem;
+    min-height: 35rem;
   }
 
   .technology__text {
@@ -222,7 +231,7 @@ export default {
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin: 0 4rem 0 2rem;
+    margin: 0 4rem;
   }
 
   .portrait {
