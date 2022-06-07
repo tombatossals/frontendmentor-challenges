@@ -1,11 +1,11 @@
 <template>
   <div class="main">
+    <div class="main__title heading5">
+      <span class="main__title__number">02</span>Meet your crew
+    </div>
+
     <div class="main__content">
-      <div class="main__title heading5 hide-small">
-        <span class="main__title__number">02</span>Meet your crew
-      </div>
-      <div class="crew__border hide-small"></div>
-      <CrewMenu v-if="crew" :items="crew" class="hide-menu"></CrewMenu>
+      <div class="crew__border"></div>
 
       <div class="crew__description">
         <div class="crew__text">
@@ -14,13 +14,10 @@
           <p class="normaltext">{{ role.bio }}</p>
         </div>
       </div>
-      <CrewMenu v-if="crew" :items="crew" class="hide-small"></CrewMenu>
+      <CrewMenu class="crew__menu" v-if="crew" :items="crew"></CrewMenu>
     </div>
     <div class="main__crew">
       <img :alt="role.name" :src="role.images.png" />
-    </div>
-    <div class="main__title heading5 hide-full">
-      <span class="main__title__number">02</span>Meet your crew
     </div>
   </div>
 </template>
@@ -47,6 +44,10 @@ export default {
     background: url(/static/assets/crew/background-crew-mobile.jpg) no-repeat
       center center fixed;
     background-size: cover;
+  }
+
+  .crew__menu {
+    order: 3;
   }
 }
 
@@ -126,18 +127,17 @@ export default {
   width: 100%;
 }
 
-@media only screen and (max-width: 450px) {
-  .hide-small {
-    display: none;
+@media only screen and (max-width: 451px) {
+  .main__title {
+    order: 1;
   }
 }
-
 @media only screen and (min-width: 451px) {
   .main__title {
     margin-bottom: 4rem;
   }
   .main {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     margin: 0 4rem;
     text-align: left;
@@ -146,19 +146,22 @@ export default {
   .main__content {
     flex: 0;
   }
+
+  .main__crew {
+    flex: 1;
+    justify-content: center;
+    text-align: center;
+  }
   .main__crew img {
-    max-height: 10rem;
+    max-height: 40rem;
   }
 
   .crew__description {
     text-align: center;
+    margin: 0 6rem;
   }
 
   .crew__border {
-    display: none;
-  }
-
-  .hide-menu {
     display: none;
   }
 }
@@ -176,6 +179,9 @@ export default {
     margin-bottom: 0;
   }
 
+  .crew__description {
+    margin: 0;
+  }
   .main__content {
     flex: 1;
   }
@@ -195,10 +201,6 @@ export default {
 
   .main__crew img {
     width: auto;
-  }
-
-  .hide-full {
-    display: none;
   }
 }
 </style>

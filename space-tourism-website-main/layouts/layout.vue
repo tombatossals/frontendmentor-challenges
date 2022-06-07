@@ -23,9 +23,9 @@
 
     <div class="layout">
       <div class="header">
-        <NuxtLink to="/" class="header__logo">
+        <div class="header__logo">
           <img alt="Logo" src="@/static/assets/shared/logo.svg" />
-        </NuxtLink>
+        </div>
         <div class="header__line"></div>
         <div class="header__menu__burguer">
           <div class="menu__burguer__icon"></div>
@@ -55,7 +55,7 @@
           >
           <NuxtLink
             class="header__menuitem"
-            to="/technology/moon"
+            to="/technology/launch-vehicle"
             :class="
               $route.path.search('technology') !== -1 && 'router-link-active'
             "

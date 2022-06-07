@@ -1,5 +1,5 @@
 <script setup>
-const data = await import("/static/data.json");
+import data from "./static/data.json";
 </script>
 
 <template>
