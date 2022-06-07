@@ -5,16 +5,15 @@
     </div>
     <div class="technology__description">
       <div class="main__technology">
-        <img :alt="technology.name" :src="technology.images.landscape" />
+        <img class="landscape" :alt="technology.name" :src="technology.images.landscape" />
+        <img class="portrait" :alt="technology.name" :src="technology.images.portrait" />
       </div>
-      <TechnologyMenu
-        v-if="technologies"
-        :items="technologies"
-      ></TechnologyMenu>
+      <TechnologyMenu class="technology__menu" v-if="technologies" :items="technologies"></TechnologyMenu>
 
       <div class="technology__text">
-        <h2 class="heading4">the terminology...</h2>
+        <h2 class="navtext">the terminology...</h2>
         <h1 class="heading3">{{ technology.name }}</h1>
+        <p class="normaltext">{{ technology.description }}</p>
       </div>
     </div>
   </div>
@@ -41,24 +40,21 @@ export default {
 <style>
 @media only screen and (max-width: 450px) {
   body.technology {
-    background: url(/static/assets/technology/background-technology-mobile.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/technology/background-technology-mobile.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (max-width: 850px) {
   body.technology {
-    background: url(/static/assets/technology/background-technology-tablet.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/technology/background-technology-tablet.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (min-width: 851px) {
   body.technology {
-    background: url(/static/assets/technology/background-technology-desktop.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/technology/background-technology-desktop.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -77,9 +73,11 @@ export default {
   align-items: flex-end;
   flex: 0;
 }
+
 .main__technology img {
   max-height: 10rem;
 }
+
 .technology__description {
   flex: 2;
   display: flex;
@@ -93,9 +91,10 @@ export default {
   margin-bottom: 0.5rem;
 }
 
-.heading3  {
+.heading3 {
   white-space: nowrap;
 }
+
 .main {
   display: flex;
   flex-direction: column;
@@ -108,6 +107,7 @@ export default {
 .technology__description {
   flex: 1;
 }
+
 .main__title__number {
   margin-right: 1rem;
   opacity: 0.25;
@@ -117,11 +117,19 @@ export default {
   width: 100%;
 }
 
+.landscape {
+  display: inline;
+}
+
+.portrait {
+  display: none;
+}
+
 @media only screen and (min-width: 451px) {
   .main__title {
     margin-bottom: 4rem;
-    margin-left: 8rem;
   }
+
   .main {
     align-items: center;
     flex-direction: column;
@@ -138,8 +146,8 @@ export default {
     justify-content: center;
     text-align: center;
     width: 100%;
-    background: red;
   }
+
   .main__technology img {
     object-fit: cover;
     width: 100%;
@@ -162,34 +170,67 @@ export default {
     margin: 0 0 0 12rem;
   }
 
+  .technology__menu {
+    order: 1;
+    flex: 0;
+  }
+
+  .navtext {
+    color: var(--light-blue);
+    margin-bottom: 1rem;
+  }
+
+  .heading3 {
+    font-size: 64px;
+  }
+
   .main__title {
+    margin: 0 0;
+    display: flex;
+    align-items: flex-end;
     flex: 1;
-    margin: 2rem 6rem;
   }
 
   .technology__description {
+    margin: 0 0;
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
+    flex: 3;
   }
+
   .main__content {
     flex: 1;
   }
+
   .main__technology {
-    align-items: flex-end;
-    justify-content: stretch;
     flex: 1;
+    align-items: center;
+    display: flex;
   }
+
   .main__technology img {
-    max-height: 38rem;
+    max-width: 100%;
+    object-fit: cover;
+    min-height: 40rem;
   }
 
   .technology__text {
-    width: 28rem;
     text-align: left;
+    justify-content: space-between;
+    align-items: space-between;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 0 4rem 0 2rem;
   }
 
-  .main__technology img {
-    width: auto;
+  .portrait {
+    display: inline;
+  }
+
+  .landscape {
+    display: none;
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="menu__technology navtext">
     <div v-for="(item, index) in items">
       <NuxtLink class="menu__item" :to="`/technology/${item}`">{{
-        index + 1
+          index + 1
       }}</NuxtLink>
     </div>
   </div>
@@ -40,7 +40,17 @@ export default {
 
 @media only screen and (min-width: 851px) {
   .menu__technology {
-    justify-content: stretch;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: space-around;
+  }
+
+  .menu__item {
+    width: 6rem;
+    height: 6rem;
+    line-height: 6rem;
+    font-size: 2.4rem;
+    margin: 1rem 0;
   }
 }
 </style>
