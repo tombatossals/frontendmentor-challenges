@@ -15,7 +15,7 @@ export default {
   display: flex;
   align-items: stretch;
   justify-content: center;
-  margin: 1rem;
+  margin: 1rem 0;
   flex: 1;
   order: 2;
 }
@@ -33,7 +33,7 @@ export default {
   background-color: var(--white);
 }
 
-@media only screen and (min-width: 851px) {
+@media only screen and (min-width: 1150px) {
   .menu__crew {
     justify-content: stretch;
   }

@@ -15,9 +15,7 @@
         </div>
       </div>
       <div class="main__explore">
-        <NuxtLink to="/destination/moon" class="main__circle heading4"
-          >Explore</NuxtLink
-        >
+        <NuxtLink to="/destination/moon" class="main__circle heading4">Explore</NuxtLink>
       </div>
     </div>
   </div>
@@ -35,24 +33,21 @@ export default {
 <style>
 @media only screen and (max-width: 450px) {
   body.home {
-    background: url(/static/assets/home/background-home-mobile.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/home/background-home-mobile.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (max-width: 850px) {
   body.home {
-    background: url(/static/assets/home/background-home-tablet.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/home/background-home-tablet.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (min-width: 851px) {
   body.home {
-    background: url(/static/assets/home/background-home-desktop.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/home/background-home-desktop.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -71,6 +66,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 .main__explore {
   flex: 1;
   display: flex;
@@ -115,6 +111,7 @@ export default {
   .main {
     padding: 0 1rem;
   }
+
   .main__content {
     text-align: center;
   }
@@ -122,6 +119,7 @@ export default {
   .main__explore {
     margin: 2rem 0;
   }
+
   .main__circle {
     width: 9rem;
     height: 9rem;
@@ -132,6 +130,7 @@ export default {
   .main__description {
     width: 28rem;
   }
+
   .main__content {
     text-align: center;
     justify-content: center;
@@ -147,6 +146,12 @@ export default {
     flex: 1;
     justify-content: center;
     align-items: center;
+  }
+
+  .main__circle {
+    width: 12rem;
+    height: 12rem;
+
   }
 }
 

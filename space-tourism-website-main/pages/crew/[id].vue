@@ -1,24 +1,38 @@
 <template>
+
   <div class="main">
-    <div class="main__title heading5">
-      <span class="main__title__number">02</span>Meet your crew
-    </div>
+
 
     <div class="main__content">
-      <div class="crew__border"></div>
+      <div class="main__title heading5 hide-small">
+        <span class="main__title__number">02</span>Meet your crew
+      </div>
+
+
+      <div class="crew__border only-small"></div>
 
       <div class="crew__description">
+
         <div class="crew__text">
+          <CrewMenu class="crew__menu only-small" v-if="crew" :items="crew"></CrewMenu>
           <h2 class="heading4">{{ role.role }}</h2>
           <h1 class="heading3">{{ role.name }}</h1>
           <p class="normaltext">{{ role.bio }}</p>
         </div>
+
       </div>
-      <CrewMenu class="crew__menu" v-if="crew" :items="crew"></CrewMenu>
+      <CrewMenu class="crew__menu hide-small" v-if="crew" :items="crew"></CrewMenu>
     </div>
+
     <div class="main__crew">
       <img :alt="role.name" :src="role.images.png" />
     </div>
+
+    <div class="main__title heading5 only-small">
+      <span class="main__title__number">02</span>Meet your crew
+    </div>
+
+
   </div>
 </template>
 
@@ -41,28 +55,22 @@ export default {
 <style>
 @media only screen and (max-width: 450px) {
   body.crew {
-    background: url(/static/assets/crew/background-crew-mobile.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/crew/background-crew-mobile.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 
-  .crew__menu {
-    order: 3;
-  }
 }
 
 @media only screen and (max-width: 850px) {
   body.crew {
-    background: url(/static/assets/crew/background-crew-tablet.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/crew/background-crew-tablet.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (min-width: 851px) {
   body.crew {
-    background: url(/static/assets/crew/background-crew-desktop.jpg) no-repeat
-      center center fixed;
+    background: url(/static/assets/crew/background-crew-desktop.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -75,15 +83,22 @@ export default {
   flex: 1;
 }
 
+.only-small {
+  display: none;
+}
+
+
 .main__crew {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   flex: 0;
 }
+
 .main__crew img {
   max-height: 14rem;
 }
+
 .crew__description {
   flex: 2;
   display: flex;
@@ -96,9 +111,6 @@ export default {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.heading3  {
-  white-space: nowrap;
-}
 .main {
   display: flex;
   flex-direction: column-reverse;
@@ -112,6 +124,7 @@ export default {
 .crew__description {
   flex: 1;
 }
+
 .crew__border {
   height: 1px;
   width: 100%;
@@ -128,14 +141,38 @@ export default {
 }
 
 @media only screen and (max-width: 451px) {
-  .main__title {
-    order: 1;
+  .only-small {
+    display: block;
   }
+
+  .crew__menu.only-small {
+    display: flex;
+  }
+
+  .hide-small {
+    display: none;
+  }
+
+  .crew__menu {
+    align-self: center;
+    flex: 0;
+  }
+
 }
+
 @media only screen and (min-width: 451px) {
   .main__title {
     margin-bottom: 4rem;
   }
+
+  .hide-small {
+    display: blocK;
+  }
+
+  .crew__menu.hide-small {
+    display: flex;
+  }
+
   .main {
     align-items: center;
     flex-direction: column;
@@ -152,17 +189,19 @@ export default {
     justify-content: center;
     text-align: center;
   }
+
   .main__crew img {
     max-height: 40rem;
   }
 
   .crew__description {
     text-align: center;
-    margin: 0 6rem;
+    margin: 0;
   }
 
-  .crew__border {
-    display: none;
+  .normaltext {
+    max-width: 80%;
+    margin: auto;
   }
 }
 
@@ -182,14 +221,32 @@ export default {
   .crew__description {
     margin: 0;
   }
+
+  .normaltext {
+    margin: 0;
+    max-width: 100%;
+  }
+
   .main__content {
     flex: 1;
+    margin-left: 6rem;
   }
+
+  .crew__description. {
+    flex: 1;
+    background: red;
+  }
+
+  .crew__text {
+    flex: 1;
+  }
+
   .main__crew {
     align-items: flex-end;
     justify-content: stretch;
     flex: 1;
   }
+
   .main__crew img {
     max-height: 38rem;
   }
