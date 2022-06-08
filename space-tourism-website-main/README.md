@@ -31,7 +31,7 @@ Users should be able to:
 ### Links
 
 - [Solution URL](https://github.com/tombatossals/frontendmentor-challenges/tree/main/space-tourism-website-main)
-- [Live Site URL](https://tombatossals.github.io/frontendmentor-challenges/space-tourism-website-main)
+- [Live Site URL](https://tombatossals.github.io/frontendmentor-challenges/space-tourism-website-main/dist)
 
 ## My process
 
