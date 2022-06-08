@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <main class="main">
     <div class="main__title heading5">
       <span class="main__title__number">01</span>Pick your destination
     </div>
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -51,24 +51,21 @@ export default {
 <style>
 @media only screen and (max-width: 450px) {
   body.destination {
-    background: url(/static/assets/destination/background-destination-mobile.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/destination/background-destination-mobile.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (max-width: 850px) {
   body.destination {
-    background: url(/static/assets/destination/background-destination-tablet.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/destination/background-destination-tablet.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
 
 @media only screen and (min-width: 851px) {
   body.destination {
-    background: url(/static/assets/destination/background-destination-desktop.jpg)
-      no-repeat center center fixed;
+    background: url(/static/assets/destination/background-destination-desktop.jpg) no-repeat center center fixed;
     background-size: cover;
   }
 }
@@ -84,9 +81,11 @@ export default {
 .main__planet {
   margin-bottom: 1rem;
 }
+
 .main__planet img {
   width: 11rem;
 }
+
 .destination__description {
   flex: 1;
   display: flex;
@@ -97,6 +96,7 @@ export default {
 .heading2 {
   text-align: center;
 }
+
 .destination__full {
   color: var(--light-blue) !important;
 }
@@ -113,6 +113,7 @@ export default {
 .destination__description {
   flex: 1;
 }
+
 .destination__border {
   height: 1px;
   width: 100%;
@@ -134,6 +135,7 @@ export default {
 p.subheading1 {
   margin: 0.5rem 0 2rem;
 }
+
 .destination__distance,
 .destination__travel {
   flex: 1;
@@ -148,6 +150,7 @@ p.subheading1 {
   .main__title {
     margin-bottom: 4rem;
   }
+
   .main {
     height: 80vh;
     align-items: flex-start;
@@ -168,6 +171,7 @@ p.subheading1 {
     justify-content: center;
     align-items: flex-start;
   }
+
   .main__content {
     flex-direction: row;
   }

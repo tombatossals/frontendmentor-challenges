@@ -1,5 +1,5 @@
 <template>
-  <div class="main__wrapper">
+  <main class="main__wrapper">
     <div class="main__margin"></div>
     <div class="main">
       <div class="main__content">
@@ -18,7 +18,7 @@
         <NuxtLink to="/destination/moon" class="main__circle heading4">Explore</NuxtLink>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -163,6 +163,11 @@ export default {
 
   .main__margin {
     flex: 1;
+  }
+
+  .main__circle {
+    width: 16rem;
+    height: 16rem;
   }
 }
 </style>

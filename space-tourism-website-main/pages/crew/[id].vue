@@ -1,6 +1,6 @@
 <template>
 
-  <div class="main">
+  <main class="main">
 
 
     <div class="main__content">
@@ -33,7 +33,7 @@
     </div>
 
 
-  </div>
+  </main>
 </template>
 
 <script>
@@ -100,7 +100,7 @@ export default {
 }
 
 .crew__description {
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -118,10 +118,6 @@ export default {
   align-items: center;
   text-align: center;
   margin: 0 1.5rem;
-  flex: 1;
-}
-
-.crew__description {
   flex: 1;
 }
 
@@ -220,6 +216,7 @@ export default {
 
   .crew__description {
     margin: 0;
+    flex: 1;
   }
 
   .normaltext {
@@ -230,11 +227,6 @@ export default {
   .main__content {
     flex: 1;
     margin-left: 6rem;
-  }
-
-  .crew__description. {
-    flex: 1;
-    background: red;
   }
 
   .crew__text {

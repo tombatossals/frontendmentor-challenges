@@ -16,31 +16,32 @@
     </Head>
 
     <div class="layout">
-      <div class="header">
+      <header class="header">
         <div class="header__logo">
           <img alt="Logo" src="@/static/assets/shared/logo.svg" />
         </div>
         <div class="header__line"></div>
-        <div class="header__menu__burguer">
-          <div class="menu__burguer__icon"></div>
-          <div class="menu__burguer__icon"></div>
-          <div class="menu__burguer__icon"></div>
+        <div class="header__menu__burger" v-click-outside="() => showMenu = false">
+          <img @click="showMenu = true" alt="Menu" src="@/static/assets/shared/icon-hamburger.svg" />
+          <div class="header__menu__small" :class="{ showMenu: showMenu }">
+            <img @click="showMenu = false" class="icon__close" alt="Menu" src="@/static/assets/shared/icon-close.svg" />
+
+            <NuxtLink class="header__menuitem__small" to="/"><span class="header__menuitem__number">00</span> Home
+            </NuxtLink>
+            <NuxtLink class="header__menuitem__small" to="/destination/moon" :class="
+              $route.path.search('destination') !== -1 && 'router-link-active'
+            "><span class="header__menuitem__number">01</span>
+              Destination</NuxtLink>
+            <NuxtLink class="header__menuitem__small" to="/crew/commander"
+              :class="$route.path.search('crew') !== -1 && 'router-link-active'"><span
+                class="header__menuitem__number">02</span> Crew</NuxtLink>
+            <NuxtLink class="header__menuitem__small" to="/technology/launch-vehicle" :class="
+              $route.path.search('technology') !== -1 && 'router-link-active'
+            "><span class="header__menuitem__number">03</span>
+              Technology</NuxtLink>
+          </div>
         </div>
-        <div class="header__menu__small">
-          <NuxtLink class="header__menuitem__small" to="/"><span class="header__menuitem__number">00</span> Home
-          </NuxtLink>
-          <NuxtLink class="header__menuitem__small" to="/destination/moon" :class="
-            $route.path.search('destination') !== -1 && 'router-link-active'
-          "><span class="header__menuitem__number">01</span>
-            Destination</NuxtLink>
-          <NuxtLink class="header__menuitem__small" to="/crew/commander"
-            :class="$route.path.search('crew') !== -1 && 'router-link-active'"><span
-              class="header__menuitem__number">02</span> Crew</NuxtLink>
-          <NuxtLink class="header__menuitem__small" to="/technology/launch-vehicle" :class="
-            $route.path.search('technology') !== -1 && 'router-link-active'
-          "><span class="header__menuitem__number">03</span>
-            Technology</NuxtLink>
-        </div>
+
 
         <div class="header__menu navtext">
           <div class="header__menu__background"></div>
@@ -57,12 +58,36 @@
           "><span class="header__menuitem__number">03</span>
             Technology</NuxtLink>
         </div>
-      </div>
+      </header>
       <slot />
     </div>
   </div>
 </template>
-
+<script >
+export default {
+  data() {
+    return {
+      showMenu: false
+    }
+  },
+  directives: {
+    "click-outside": {
+      beforeMount(el, binding, vnode) {
+        el.clickOutsideEvent = (evt) => {
+          evt.stopPropagation();
+          if (!(el === evt.target || el.contains(evt.target))) {
+            binding.value(evt, el);
+          }
+        }
+        // Wait 1 frame otherwise a potential click that mounted the element will immediately trigger a click-outside event:
+        window.requestAnimationFrame(() => { document.addEventListener('click', el.clickOutsideEvent) });
+      },
+      unmounted(el) {
+        document.removeEventListener('click', el.clickOutsideEvent);
+      },
+    }
+  }
+}</script>
 <style scoped>
 .layout {
   display: flex;
@@ -82,20 +107,46 @@
   align-items: center;
 }
 
+.header__menu__small.showMenu {
+  display: flex;
+}
+
 .header__menu__small {
   position: absolute;
   top: 0;
   right: 0;
   min-width: 70%;
   min-height: 100vh;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(28px);
   z-index: 100;
-  background: red;
-  display: flex;
+  display: none;
   flex-direction: column;
+  padding: 2rem 0 2rem 2rem;
 }
 
-.header__menuitem__small {}
+.header__menu__small a {
+  color: var(--white);
+  font: 16px "Barlow Condensed", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2.7px;
+}
+
+.header__menuitem__small.router-link-active {
+  border-right: 4px solid var(--white);
+}
+
+.icon__close {
+  width: 2rem;
+  align-self: flex-end;
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+}
+
+.header__menuitem__small {
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  text-decoration: none;
+}
 
 .header__line {
   height: 1px;
@@ -107,8 +158,8 @@
   display: none;
 }
 
-.router-link-active {
-  border-bottom: 4px solid var(--white) !important;
+.header__menuitem.router-link-active {
+  border-bottom: 4px solid var(--white);
 }
 
 .header__menu {
@@ -150,18 +201,12 @@
   display: none;
 }
 
-.header__menu__burguer {
+.header__menu__burger {
   justify-self: flex-end;
+  flex: 1;
   cursor: pointer;
-}
-
-.menu__burguer__icon {
-  width: 1.5rem;
-  height: 0.2rem;
-  background-color: var(--light-blue);
-  margin: 6px 0;
-  transition: 0.4s;
-  display: none;
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media only screen and (max-width: 450px) {
@@ -169,7 +214,7 @@
     display: none;
   }
 
-  .menu__burguer__icon {
+  .menu__burger__icon {
     display: block;
   }
 
@@ -196,6 +241,10 @@
   .header {
     margin-right: 0;
     margin-left: 4rem;
+  }
+
+  .header__menu__burger {
+    display: none;
   }
 
   .header__logo {

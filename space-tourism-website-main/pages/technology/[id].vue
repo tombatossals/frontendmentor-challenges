@@ -1,5 +1,5 @@
 <template>
-  <div class="main">
+  <main class="main">
     <div class="main__title heading5">
       <span class="main__title__number">03</span>Space launch 101
     </div>
@@ -16,7 +16,7 @@
         <p class="normaltext">{{ technology.description }}</p>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -212,7 +212,7 @@ export default {
   .main__technology img {
     max-width: 100%;
     object-fit: cover;
-    min-height: 40rem;
+    min-height: 36rem;
   }
 
   .technology__text {
