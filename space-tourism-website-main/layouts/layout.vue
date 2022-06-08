@@ -26,6 +26,21 @@
           <div class="menu__burguer__icon"></div>
           <div class="menu__burguer__icon"></div>
         </div>
+        <div class="header__menu__small">
+          <NuxtLink class="header__menuitem__small" to="/"><span class="header__menuitem__number">00</span> Home
+          </NuxtLink>
+          <NuxtLink class="header__menuitem__small" to="/destination/moon" :class="
+            $route.path.search('destination') !== -1 && 'router-link-active'
+          "><span class="header__menuitem__number">01</span>
+            Destination</NuxtLink>
+          <NuxtLink class="header__menuitem__small" to="/crew/commander"
+            :class="$route.path.search('crew') !== -1 && 'router-link-active'"><span
+              class="header__menuitem__number">02</span> Crew</NuxtLink>
+          <NuxtLink class="header__menuitem__small" to="/technology/launch-vehicle" :class="
+            $route.path.search('technology') !== -1 && 'router-link-active'
+          "><span class="header__menuitem__number">03</span>
+            Technology</NuxtLink>
+        </div>
 
         <div class="header__menu navtext">
           <div class="header__menu__background"></div>
@@ -66,6 +81,21 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.header__menu__small {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 70%;
+  min-height: 100vh;
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  background: red;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__menuitem__small {}
 
 .header__line {
   height: 1px;
