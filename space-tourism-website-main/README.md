@@ -41,8 +41,9 @@ Users should be able to:
 
 ### What I learned
 
+- Vue3
 - NuxtJS3
-- [NuxtJS Google Fonts](https://google-fonts.nuxtjs.org/)
+- Media queries development for different screen sizes
 
 ### Useful resources
 
