@@ -5,7 +5,7 @@
       <Meta charset="UTF-8" />
       <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <Link rel="icon" type="image/png" sizes="32x32" href="/static/assets/favicon-32x32.png" />
+      <Link rel="icon" type="image/png" sizes="32x32" href="@/static/assets/favicon-32x32.png" />
 
       <Link rel="preconnect" href="https://fonts.googleapis.com" />
       <Link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -13,4 +13,7 @@ This repository is a collection of all my solutions I submitted at [Frontend Men
   - [interactive-rating-component-main](./interactive-rating-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/interactive-rating-component-main/)]
 
 - Space Tourism Website
-  - [space-tourism-website-main](./space-tourism-website-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/space-tourism-website-main/.output/public)]
+  - [space-tourism-website-main](./space-tourism-website-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/space-tourism-website-main/)]
+
+- QR code component
+  - [qr-code-component-main](./qr-code-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/qr-code-component-main/)]
