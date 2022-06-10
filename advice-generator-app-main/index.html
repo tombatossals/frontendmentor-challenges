@@ -18,17 +18,19 @@
 
 <body>
 
-  <main id="app" class="advice" v-if="slip">
-    <h1 class="advice__title">Advice #{{ slip.id }}</h1>
-    <div class="advice__content">"{{slip.advice}}"</div>
-    <div class="advice__quote">
-      <div class="quote__line"></div>
-      <div class="quote__quote quote1"></div>
-      <div class="quote__quote quote2"></div>
-      <div class="quote__line"></div>
-    </div>
-    <div class="advice__dice" @click="fetchAdvice">
-      <img class=" advice__image__dice" alt="dice" src="images/icon-dice.svg" />
+  <main>
+    <div id="app" class="advice" v-if="slip">
+      <h1 class="advice__title">Advice #{{ slip.id }}</h1>
+      <div class="advice__content">"{{slip.advice}}"</div>
+      <div class="advice__quote">
+        <div class="quote__line"></div>
+        <div class="quote__quote quote1"></div>
+        <div class="quote__quote quote2"></div>
+        <div class="quote__line"></div>
+      </div>
+      <div class="advice__dice" @click="fetchAdvice">
+        <img class=" advice__image__dice" alt="dice" src="images/icon-dice.svg" />
+      </div>
     </div>
   </main>
 
