@@ -42,8 +42,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### Links
 
-- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/tree/main/advice-generator-component-main)
-- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/advice-generator-component-main)
+- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/tree/main/advice-generator-app-main)
+- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/advice-generator-app-main)
 
 ## My process
 
