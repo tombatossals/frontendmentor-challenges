@@ -1,7 +1,7 @@
 const app = Vue.createApp(
     {
         template: `
-<div id="app" class="advice" v-if="slip">
+<div class="advice" v-if="slip">
     <h1 class="advice__title">Advice #{{ slip.id }}</h1>
     <div class="advice__content">"{{slip.advice}}"</div>
     <div class="advice__quote">
