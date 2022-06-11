@@ -26,16 +26,17 @@
           <div class="header__menu__small" :class="{ showMenu: showMenu }">
             <img @click="showMenu = false" class="icon__close" alt="Menu" src="@/static/assets/shared/icon-close.svg" />
 
-            <NuxtLink class="header__menuitem__small" to="/"><span class="header__menuitem__number">00</span> Home
+            <NuxtLink @click="showMenu = false" class="header__menuitem__small" to="/"><span
+                class="header__menuitem__number">00</span> Home
             </NuxtLink>
-            <NuxtLink class="header__menuitem__small" to="/destination/moon" :class="
+            <NuxtLink @click="showMenu = false" class="header__menuitem__small" to="/destination/moon" :class="
               $route.path.search('destination') !== -1 && 'router-link-active'
             "><span class="header__menuitem__number">01</span>
               Destination</NuxtLink>
-            <NuxtLink class="header__menuitem__small" to="/crew/commander"
+            <NuxtLink @click="showMenu = false" class="header__menuitem__small" to="/crew/commander"
               :class="$route.path.search('crew') !== -1 && 'router-link-active'"><span
                 class="header__menuitem__number">02</span> Crew</NuxtLink>
-            <NuxtLink class="header__menuitem__small" to="/technology/launch-vehicle" :class="
+            <NuxtLink @click="showMenu = false" class="header__menuitem__small" to="/technology/launch-vehicle" :class="
               $route.path.search('technology') !== -1 && 'router-link-active'
             "><span class="header__menuitem__number">03</span>
               Technology</NuxtLink>

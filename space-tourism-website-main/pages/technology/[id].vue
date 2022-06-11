@@ -223,7 +223,7 @@ export default {
   .main__technology img {
     max-width: 100%;
     object-fit: cover;
-    min-height: 36rem;
+    min-height: 34rem;
   }
 
   .technology__text {
