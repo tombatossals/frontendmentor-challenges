@@ -1,0 +1,112 @@
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --very-dark-blue-bg: hsl(217, 54%, 11%);
+  --very-dark-blue-card: hsl(216, 50%, 16%);
+  --very-dark-blue-line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: 18px "Outfit", sans-serif;
+}
+
+body {
+  background-color: var(--very-dark-blue-bg);
+  color: var(--white);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  width: 100%;
+  max-width: 20rem;
+  border-radius: 14px;
+  background-color: var(--very-dark-blue-card);
+  padding: 1.5rem;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.card__title {
+  font-size: 1.2rem;
+}
+.card__image img {
+  border-radius: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.card__ethereum__info img {
+  margin-right: 0.5rem;
+}
+
+.card__info__time img {
+  margin-right: 0.5rem;
+}
+
+.card__info__time {
+  flex: 1;
+  align-self: flex-end;
+  text-align: right;
+  display: flex;
+  align-items: center;
+}
+
+.card__ethereum__info {
+  display: flex;
+  align-items: center;
+  color: var(--cyan);
+}
+.card__info__time {
+  color: var(--soft-blue);
+}
+
+.card__description {
+  color: var(--soft-blue);
+}
+
+.card__information {
+  display: flex;
+}
+
+.card__ethereum__info {
+  flex: 1;
+}
+
+.card__info__time {
+  display: flex;
+  justify-content: flex-end;
+  flex: 1;
+  text-align: right;
+}
+
+.card__author {
+  margin-top: 1rem;
+  border-top: 1px solid var(--very-dark-blue-line);
+  padding-top: 1rem;
+  align-items: center;
+  display: flex;
+}
+
+.card__avatar img {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.card__author__info {
+  flex: 1;
+}
+
+.card__author__info .creator {
+  color: var(--soft-blue);
+}

@@ -20,3 +20,6 @@ This repository is a collection of all my solutions I submitted at [Frontend Men
 
 - Advice Generator
   - [advice-generator-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/advice-generator-app-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/advice-generator-app-main/)]
+
+- NFT preview card component
+  - [nft-preview-card-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/nft-preview-card-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/nft-preview-card-component-main/)]
