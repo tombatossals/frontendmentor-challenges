@@ -37,7 +37,35 @@ body {
 
 .card__title {
   font-size: 1.2rem;
+  cursor: pointer;
 }
+
+.card__title:hover {
+  color: var(--cyan);
+}
+
+.card__image {
+  cursor: pointer;
+  position: relative;
+}
+
+.card__image:hover .overlay {
+  opacity: 1;
+}
+
+.overlay {
+  background-color: hsla(178, 100%, 50%, 0.5);
+  display: flex; /* Center the view icon with flexbox*/
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
 .card__image img {
   border-radius: 8px;
   max-width: 100%;
@@ -105,8 +133,14 @@ body {
 
 .card__author__info {
   flex: 1;
+  color: var(--soft-blue);
 }
 
 .card__author__info .creator {
-  color: var(--soft-blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.card__author__info .creator:hover {
+  color: var(--cyan);
 }
