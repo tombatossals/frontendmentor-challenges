@@ -5,7 +5,11 @@
     </div>
     <div class="main__content">
       <div class="main__planet">
-        <img :alt="planet.name" :src="planet.images.png" />
+        <picture>
+          <source type="image/webp" :srcset="planet.images.webp">
+          <source type="image/png" :srcset="planet.images.png">
+          <img :alt="planet.name" :src="planet.images.png" />
+        </picture>
       </div>
       <div class="destination__description">
         <div class="destination__text">

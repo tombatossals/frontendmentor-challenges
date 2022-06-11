@@ -48,6 +48,7 @@ Users should be able to:
 ### Useful resources
 
 - [Perfect full page background image](https://css-tricks.com/perfect-full-page-background-image/)
+- [Using WebP images](https://web.dev/i18n/es/serve-images-webp/)
 
 ## Author
 

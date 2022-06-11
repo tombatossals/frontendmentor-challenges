@@ -25,7 +25,12 @@
     </div>
 
     <div class="main__crew">
-      <img :alt="role.name" :src="role.images.png" />
+      <picture>
+        <source type="image/webp" :srcset="role.images.webp">
+        <source type="image/png" :srcset="role.images.png">
+        <img :alt="role.name" :src="role.images.png" />
+      </picture>
+
     </div>
 
     <div class="main__title heading5 only-small">
