@@ -1,6 +1,5 @@
-const app = Vue.createApp(
-    {
-        template: `
+const app = Vue.createApp({
+  template: `
 <div class="advice" v-if="slip">
     <h1 class="advice__title">Advice #{{ slip.id }}</h1>
     <div class="advice__content">"{{slip.advice}}"</div>
@@ -14,24 +13,23 @@ const app = Vue.createApp(
         <img class=" advice__image__dice" alt="dice" src="images/icon-dice.svg" />
     </div>
 </div>`,
-    data() {
-        return {
-          slip: {}
-        }
-      },
-      methods: {
-        async fetchAdvice() {
-          const req = await fetch("https://api.adviceslip.com/advice?id=" + Date.now());
-          const {
-            slip
-          } = await req.json();
-          this.slip = slip;
-        }
-      },
-      mounted() {
-        this.fetchAdvice()
-      }
-    }  
-)
+  data() {
+    return {
+      slip: {},
+    };
+  },
+  methods: {
+    async fetchAdvice() {
+      const req = await fetch(
+        "https://api.adviceslip.com/advice?id=" + Date.now()
+      );
+      const { slip } = await req.json();
+      this.slip = slip;
+    },
+  },
+  mounted() {
+    this.fetchAdvice();
+  },
+});
 
-app.mount("#app")
+app.mount("#app");
