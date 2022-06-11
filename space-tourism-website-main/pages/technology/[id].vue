@@ -125,9 +125,17 @@ export default {
   display: none;
 }
 
+@media only screen and (max-width: 450px) {
+
+  .normaltext {
+    margin: 2rem;
+  }
+}
+
 @media only screen and (min-width: 451px) {
   .main__title {
     margin-bottom: 4rem;
+    margin-left: 6rem;
   }
 
   .main {
@@ -142,20 +150,31 @@ export default {
   }
 
   .main__technology {
-    flex: 1;
+    flex: 0;
     justify-content: center;
     text-align: center;
     width: 100%;
+    background: red;
   }
 
   .main__technology img {
     object-fit: cover;
     width: 100%;
+    max-height: 100%;
   }
 
   .technology__description {
     text-align: center;
+    margin: 0;
+  }
+
+  .technology__text {
     margin: 0 6rem;
+  }
+
+  .navtext {
+    color: var(--light-blue);
+    margin-bottom: 1rem;
   }
 
   .technology__border {
