@@ -75,6 +75,7 @@ export default {
 }
 
 .main__technology img {
+  width: 100%;
   max-height: 10rem;
 }
 
@@ -83,7 +84,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin: 0 2rem;
+  margin: 0;
 }
 
 .heading4 {
@@ -104,9 +105,6 @@ export default {
   flex: 1;
 }
 
-.technology__description {
-  flex: 1;
-}
 
 .main__title__number {
   margin-right: 1rem;
@@ -125,6 +123,11 @@ export default {
   display: none;
 }
 
+.navtext {
+  color: var(--light-blue);
+  margin-bottom: 1rem;
+}
+
 @media only screen and (max-width: 450px) {
 
   .normaltext {
@@ -134,8 +137,8 @@ export default {
 
 @media only screen and (min-width: 451px) {
   .main__title {
-    margin-bottom: 4rem;
-    margin-left: 6rem;
+    padding-bottom: 4rem;
+    padding-left: 5rem;
   }
 
   .main {
@@ -154,7 +157,6 @@ export default {
     justify-content: center;
     text-align: center;
     width: 100%;
-    background: red;
   }
 
   .main__technology img {
@@ -172,11 +174,6 @@ export default {
     margin: 0 6rem;
   }
 
-  .navtext {
-    color: var(--light-blue);
-    margin-bottom: 1rem;
-  }
-
   .technology__border {
     display: none;
   }
@@ -192,11 +189,6 @@ export default {
   .technology__menu {
     order: 1;
     flex: 0;
-  }
-
-  .navtext {
-    color: var(--light-blue);
-    margin-bottom: 1rem;
   }
 
   .heading3 {
