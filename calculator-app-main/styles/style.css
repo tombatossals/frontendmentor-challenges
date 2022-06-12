@@ -77,7 +77,7 @@ body {
 
 .header__theme-selector {
   display: grid;
-  grid-template: repeat(2, auto) / 3fr repeat(3, 1fr);
+  grid-template: repeat(2, auto) / 4fr repeat(3, 1fr);
   place-items: center center;
   flex: 1;
 }
@@ -86,7 +86,7 @@ body {
   flex: 1;
 }
 .theme-selector__number {
-  font-size: 0.5rem;
+  font-size: 0.4rem;
   padding-bottom: 0.2rem;
   cursor: pointer;
 }
@@ -98,7 +98,7 @@ body {
 
 .theme-selector__switch {
   grid-column: 2 / 5;
-  height: 0.8rem;
+  height: 0.9rem;
   padding: 0 0.2rem;
   display: flex;
   align-items: center;
@@ -108,10 +108,21 @@ body {
   cursor: pointer;
 }
 
+.theme-selector__switch.left {
+  justify-content: left;
+}
+
+.theme-selector__switch.center {
+  justify-content: center;
+}
+
+.theme-selector__switch.right {
+  justify-content: right;
+}
+
 .theme-selector__circle {
-  font-size: 0.4rem;
-  height: 0.6rem;
-  width: 0.6rem;
+  height: 0.5rem;
+  width: 0.5rem;
   background: var(--key-background-toggle);
   border-radius: 0.5rem;
 }

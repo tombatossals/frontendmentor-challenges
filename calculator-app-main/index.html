@@ -30,17 +30,21 @@
         <div class="header__logo">calc</div>
         <div class="header__theme-selector">
           <div></div>
-          <div class="theme-selector__number">1</div>
-          <div class="theme-selector__number">2</div>
-          <div class="theme-selector__number">3</div>
+          <div @click="switchTheme" class="theme-selector__number">1</div>
+          <div @click="switchTheme" class="theme-selector__number">2</div>
+          <div @click="switchTheme" class="theme-selector__number">3</div>
           <div class="theme-selector__text">theme</div>
-          <div class="theme-selector__switch">
+          <div
+            @click="switchTheme"
+            class="theme-selector__switch"
+            :class="{left: theme === 1, center: theme === 2, right: theme === 3}"
+          >
             <div class="theme-selector__circle"></div>
           </div>
         </div>
       </div>
       <div class="calculator__screen">
-        {{ actual === 0 ? stack : showActual() }}
+        {{ actual === "0" ? stack : actual }}
       </div>
       <div class="calculator__controlpad">
         <div @click="stackNumber" class="button 7">7</div>
@@ -55,7 +59,7 @@
         <div @click="stackNumber" class="button 2">2</div>
         <div @click="stackNumber" class="button 3">3</div>
         <div @click="stackOperator" class="button minus">-</div>
-        <div @click="dot" class="button dot">.</div>
+        <div @click="stackNumber" class="button dot">.</div>
         <div @click="stackNumber" class="button 0">0</div>
         <div @click="stackOperator" class="button slash">/</div>
         <div @click="stackOperator" class="button x">x</div>
