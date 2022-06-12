@@ -1,0 +1,183 @@
+:root,
+.main-theme {
+  --main-background: hsl(222, 26%, 31%);
+  --background-second: hsl(223, 31%, 20%);
+  --background-third: hsl(224, 36%, 15%);
+  --key-background: hsl(225, 21%, 49%);
+  --key-shadow: hsl(224, 28%, 35%);
+  --key-background-toggle: hsl(6, 63%, 50%);
+  --key-shadow-toggle: hsl(6, 70%, 34%);
+  --key-background-second: hsl(30, 25%, 89%);
+  --key-shadow-second: hsl(28, 16%, 65%);
+  --text: hsl(221, 14%, 31%);
+  --text-second: hsl(0, 0%, 100%);
+}
+
+.secondary-theme {
+  --main-background: hsl(0, 0%, 90%);
+  --background-second: hsl(0, 5%, 81%);
+  --background-third: hsl(0, 0%, 93%);
+  --key-background: hsl(185, 42%, 37%);
+  --key-shadow: hsl(185, 58%, 25%);
+  --key-background-toggle: hsl(25, 98%, 40%);
+  --key-shadow-toggle: hsl(25, 99%, 27%);
+  --key-background-second: hsl(45, 7%, 89%);
+  --key-shadow-second: hsl(35, 11%, 61%);
+  --text: hsl(60, 10%, 19%);
+  --text-second: hsl(0, 0%, 100%);
+}
+
+.third-theme {
+  --main-background: hsl(268, 75%, 9%);
+  --background-second: hsl(268, 71%, 12%);
+  --background-third: hsl(281, 89%, 26%);
+  --key-background: hsl(285, 91%, 52%);
+  --key-shadow: hsl(176, 100%, 44%);
+  --key-background-toggle: hsl(177, 92%, 70%);
+  --key-shadow-toggle: hsl(268, 47%, 21%);
+  --key-background-second: hsl(290, 70%, 36%);
+  --key-shadow-second: hsl(52, 100%, 62%);
+  --text: hsl(198, 20%, 13%);
+  --text-second: hsl(0, 0%, 100%);
+}
+html {
+  font: 32px "League Spartan", sans-serif;
+}
+
+body {
+  background-color: var(--main-background);
+  color: var(--text-second);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+}
+
+.calculator {
+  background-color: var(--main-background);
+  display: flex;
+  min-width: 340px;
+  max-width: 50rem;
+  flex-direction: column;
+  margin: 1rem;
+  user-select: none;
+}
+
+.calculator__header {
+  flex: 1;
+  width: 100%;
+  display: flex;
+}
+
+.header__logo {
+  flex: 1;
+  font-size: 1.2rem;
+}
+
+.header__theme-selector {
+  display: grid;
+  grid-template: repeat(2, auto) / 3fr repeat(3, 1fr);
+  place-items: center center;
+  flex: 1;
+}
+
+.header__theme-selector > div {
+  flex: 1;
+}
+.theme-selector__number {
+  font-size: 0.5rem;
+  padding-bottom: 0.2rem;
+  cursor: pointer;
+}
+
+.theme-selector__text {
+  font-size: 0.5rem;
+  text-transform: uppercase;
+}
+
+.theme-selector__switch {
+  grid-column: 2 / 5;
+  height: 0.8rem;
+  padding: 0 0.2rem;
+  display: flex;
+  align-items: center;
+  background: var(--background-second);
+  border-radius: 0.5rem;
+  place-self: center stretch;
+  cursor: pointer;
+}
+
+.theme-selector__circle {
+  font-size: 0.4rem;
+  height: 0.6rem;
+  width: 0.6rem;
+  background: var(--key-background-toggle);
+  border-radius: 0.5rem;
+}
+
+.calculator__screen {
+  margin-top: 0.8rem;
+  padding: 0.7rem;
+  text-align: right;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  background: var(--background-third);
+
+  word-wrap: normal;
+  max-width: 100%;
+}
+
+.calculator__controlpad {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  border-radius: 0.5rem;
+  background: var(--background-second);
+  display: grid;
+  grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+  place-self: stretch stretch;
+  gap: 0.5rem;
+}
+
+.calculator__controlpad > div {
+  text-align: center;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--key-background-second);
+  color: var(--text);
+  box-shadow: 0 5px 0px var(--key-shadow-second);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calculator__controlpad > div:hover {
+  filter: brightness(110%);
+}
+
+.calculator__controlpad > div.button:active {
+  transform: translateY(2px);
+}
+
+.calculator__controlpad > .button.reset,
+.calculator__controlpad > .button.equal,
+.calculator__controlpad > .button.del {
+  font-size: 0.7rem;
+  background: var(--key-background);
+  color: var(--text-second);
+  box-shadow: 0 5px 0px var(--key-shadow);
+}
+
+.calculator__controlpad > .button.reset {
+  grid-column: 1 / 3;
+  aspect-ratio: auto;
+}
+
+.calculator__controlpad > .button.equal {
+  grid-column: 3 / 5;
+  aspect-ratio: auto;
+  background: var(--key-background-toggle);
+  box-shadow: 0 5px 0px var(--key-shadow-toggle);
+}
