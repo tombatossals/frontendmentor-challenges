@@ -25,48 +25,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
   </head>
   <body>
-    <div class="calculator" id="app">
-      <div class="calculator__header">
-        <div class="header__logo">calc</div>
-        <div class="header__theme-selector">
-          <div></div>
-          <div @click="switchTheme" class="theme-selector__number">1</div>
-          <div @click="switchTheme" class="theme-selector__number">2</div>
-          <div @click="switchTheme" class="theme-selector__number">3</div>
-          <div class="theme-selector__text">theme</div>
-          <div
-            @click="switchTheme"
-            class="theme-selector__switch"
-            :class="{left: theme === 1, center: theme === 2, right: theme === 3}"
-          >
-            <div class="theme-selector__circle"></div>
-          </div>
-        </div>
-      </div>
-      <div class="calculator__screen">
-        {{ actual === "0" ? stack : actual }}
-      </div>
-      <div class="calculator__controlpad">
-        <div @click="stackNumber" class="button 7">7</div>
-        <div @click="stackNumber" class="button 8">8</div>
-        <div @click="stackNumber" class="button 9">9</div>
-        <div @click="del" class="button del">DEL</div>
-        <div @click="stackNumber" class="button 4">4</div>
-        <div @click="stackNumber" class="button 5">5</div>
-        <div @click="stackNumber" class="button 6">6</div>
-        <div @click="stackOperator" class="button plus">+</div>
-        <div @click="stackNumber" class="button 1">1</div>
-        <div @click="stackNumber" class="button 2">2</div>
-        <div @click="stackNumber" class="button 3">3</div>
-        <div @click="stackOperator" class="button minus">-</div>
-        <div @click="stackNumber" class="button dot">.</div>
-        <div @click="stackNumber" class="button 0">0</div>
-        <div @click="stackOperator" class="button slash">/</div>
-        <div @click="stackOperator" class="button x">x</div>
-        <div @click="reset" class="button reset">RESET</div>
-        <div @click="equal" class="button equal">=</div>
-      </div>
-    </div>
+    <main id="app"></main>
     <script src="script.js"></script>
   </body>
 </html>
