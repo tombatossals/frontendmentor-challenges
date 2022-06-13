@@ -1,5 +1,5 @@
 :root,
-.main-theme {
+:root.main-theme {
   --main-background: hsl(222, 26%, 31%);
   --background-second: hsl(223, 31%, 20%);
   --background-third: hsl(224, 36%, 15%);
@@ -13,7 +13,7 @@
   --text-second: hsl(0, 0%, 100%);
 }
 
-.secondary-theme {
+:root.light-theme {
   --main-background: hsl(0, 0%, 90%);
   --background-second: hsl(0, 5%, 81%);
   --background-third: hsl(0, 0%, 93%);
@@ -27,7 +27,7 @@
   --text-second: hsl(0, 0%, 100%);
 }
 
-.third-theme {
+:root.dark-theme {
   --main-background: hsl(268, 75%, 9%);
   --background-second: hsl(268, 71%, 12%);
   --background-third: hsl(281, 89%, 26%);
@@ -64,10 +64,10 @@ main {
   background-color: var(--main-background);
   display: flex;
   min-width: 340px;
-  max-width: 60rem;
+  max-width: 80rem;
   flex-direction: column;
-  padding: 1rem;
   user-select: none;
+  padding: 1rem;
 }
 
 .calculator__header {
@@ -115,6 +115,7 @@ main {
 
 .theme-selector__circle {
   position: absolute;
+  transition: all 300ms;
   top: 0.2rem;
   height: 0.5rem;
   width: 0.5rem;
@@ -123,15 +124,15 @@ main {
 }
 
 .theme-selector__circle.left {
-  left: 0.2rem;
+  transform: translateX(0%);
 }
 
 .theme-selector__circle.center {
-  left: calc(50% - 0.25rem);
+  transform: translateX(0.85rem);
 }
 
 .theme-selector__circle.right {
-  right: 0.2rem;
+  transform: translateX(1.7rem);
 }
 
 .calculator__screen {
@@ -159,8 +160,8 @@ main {
 }
 
 .calculator__controlpad > div {
+  padding: 0.3rem 0.6rem 0.1rem;
   text-align: center;
-  aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -198,4 +199,43 @@ main {
   aspect-ratio: auto;
   background: var(--key-background-toggle);
   box-shadow: 0 5px 0px var(--key-shadow-toggle);
+}
+
+@media only screen and (max-width: 450px) {
+  .calculator__controlpad > div {
+    padding: 0;
+    aspect-ratio: 1;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-background: hsl(0, 0%, 90%);
+    --background-second: hsl(0, 5%, 81%);
+    --background-third: hsl(0, 0%, 93%);
+    --key-background: hsl(185, 42%, 37%);
+    --key-shadow: hsl(185, 58%, 25%);
+    --key-background-toggle: hsl(25, 98%, 40%);
+    --key-shadow-toggle: hsl(25, 99%, 27%);
+    --key-background-second: hsl(45, 7%, 89%);
+    --key-shadow-second: hsl(35, 11%, 61%);
+    --text: hsl(60, 10%, 19%);
+    --text-second: hsl(0, 0%, 100%);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-background: hsl(222, 26%, 31%);
+    --background-second: hsl(223, 31%, 20%);
+    --background-third: hsl(224, 36%, 15%);
+    --key-background: hsl(225, 21%, 49%);
+    --key-shadow: hsl(224, 28%, 35%);
+    --key-background-toggle: hsl(6, 63%, 50%);
+    --key-shadow-toggle: hsl(6, 70%, 34%);
+    --key-background-second: hsl(30, 25%, 89%);
+    --key-shadow-second: hsl(28, 16%, 65%);
+    --text: hsl(221, 14%, 31%);
+    --text-second: hsl(0, 0%, 100%);
+  }
 }

@@ -1,8 +1,10 @@
 const app = Vue.createApp({
   template: `
+  <main id="app"
+  :class="{[theme]: true}"
+  >
   <div
   class="calculator"
-  :class="{'main-theme': theme === 1, 'secondary-theme': theme === 2, 'third-theme': theme === 3}"
 >
   <div class="calculator__header">
     <div class="header__logo">calc</div>
@@ -44,10 +46,11 @@ const app = Vue.createApp({
     <div @click="equal" class="button equal">=</div>
   </div>
 </div>
+</main>
 `,
   data() {
     return {
-      theme: 1,
+      theme: "main-theme",
       actual: "0",
       operator: null,
       stack: "0",
@@ -55,6 +58,7 @@ const app = Vue.createApp({
   },
   methods: {
     switchTheme(ev) {
+      const themes = { 1: "main-theme", 2: "light-theme", 3: "dark-theme" };
       const t = ev.target;
 
       if (isNaN(t.innerHTML)) {
@@ -63,16 +67,17 @@ const app = Vue.createApp({
         const pos = ev.clientX - rect.left;
 
         if (pos < width / 3) {
-          this.theme = 1;
+          this.theme = "main-theme";
         } else if (pos > (width / 3) * 2) {
-          this.theme = 3;
+          this.theme = "dark-theme";
         } else {
-          this.theme = 2;
+          this.theme = "light-theme";
         }
         localStorage.theme = this.theme;
+        console.log(this.theme);
         return;
       }
-      this.theme = parseInt(t.innerHTML);
+      this.theme = themes[parseInt(t.innerHTML)];
     },
     reset() {
       this.actual = "0";
@@ -122,6 +127,11 @@ const app = Vue.createApp({
   mounted() {
     if (localStorage.theme) {
       this.theme = parseInt(localStorage.theme);
+      return;
+    }
+    const lightMode = window.matchMedia("prefers-color-scheme: light");
+    if (lightMode) {
+      this.theme = "light-theme";
     }
   },
 });
