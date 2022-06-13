@@ -1,7 +1,7 @@
 const app = Vue.createApp({
   template: `
   <main id="app"
-  :class="{[theme]: true}"
+  :class="[theme]"
   >
   <div
   class="calculator"
@@ -17,7 +17,7 @@ const app = Vue.createApp({
       <div @click="switchTheme" class="theme-selector__switch">
         <div
           class="theme-selector__circle"
-          :class="{left: theme === 1, center: theme === 2, right: theme === 3}"
+          :class="[theme]"
         ></div>
       </div>
     </div>
@@ -43,7 +43,7 @@ const app = Vue.createApp({
     <div @click="stackOperator" class="button slash">/</div>
     <div @click="stackOperator" class="button x">x</div>
     <div @click="reset" class="button reset">RESET</div>
-    <div @click="equal" class="button equal">=</div>
+    <div @click="stackOperator" class="button equal">=</div>
   </div>
 </div>
 </main>
@@ -80,59 +80,61 @@ const app = Vue.createApp({
       this.theme = themes[parseInt(t.innerHTML)];
     },
     reset() {
+      console.log(this.actual, this.result, this.operator);
       this.actual = "0";
       this.result = "0";
+      this.operator = null;
     },
     del() {
-      this.actual = this.actual.substr(1, this.actual.length - 1);
+      this.actual = this.actual.slice(0, -1);
       if (this.actual === "") {
         this.actual = "0";
       }
     },
     stackNumber(ev) {
       const n = ev.target.innerHTML;
-      if (`${this.actual}${n}`.length > 8) {
+      if (n === ".") {
+        this.actual = `${this.actual}${n}`;
         return;
       }
-      if (this.actual === "0") {
-        this.actual = `${n}`;
-        return;
-      }
-      this.actual = `${this.actual}${n}`;
-    },
-    equal() {
-      if (!this.operator) {
-        return;
-      }
-      this.stack = eval(`${this.actual} ${this.operator} ${this.stack}`);
-      this.actual = "0";
-      this.operator = null;
+      this.actual = Number(`${this.actual}${n}`).toString();
     },
     stackOperator(ev) {
       let op = ev.target.innerHTML;
       if (op === "x") {
         op = "*";
-      }
-      if (!this.operator) {
+      } else if (op === "=") {
+        op = this.operator;
+      } else if (!this.operator) {
         this.operator = op;
         this.stack = this.actual;
         this.actual = "0";
         return;
       }
-      this.stack = eval(`${this.actual} ${this.operator} ${this.stack}`);
+
+      console.log(`${this.actual} ${this.operator} ${this.stack}`);
+
+      if (this.operator) {
+        this.stack = eval(
+          `${this.stack} ${this.operator} ${this.actual}`
+        ).toFixed(8);
+      }
       this.actual = "0";
       this.operator = op;
     },
   },
   mounted() {
     if (localStorage.theme) {
-      this.theme = parseInt(localStorage.theme);
+      this.theme = localStorage.theme;
       return;
     }
     const lightMode = window.matchMedia("prefers-color-scheme: light");
-    if (lightMode) {
+    if (false && lightMode) {
       this.theme = "light-theme";
+      return;
     }
+
+    this.theme = "main-theme";
   },
 });
 
