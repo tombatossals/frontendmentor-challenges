@@ -23,27 +23,27 @@ const app = Vue.createApp({
     </div>
   </div>
   <div class="calculator__screen">
-    {{ actual === "0" ? stack : actual }}
+    {{ this.stack.length > 1 && this.stack[0] === 0 ? this.stack[1]: this.stack[0] }}
   </div>
   <div class="calculator__controlpad">
-    <div @click="stackNumber" class="button 7">7</div>
-    <div @click="stackNumber" class="button 8">8</div>
-    <div @click="stackNumber" class="button 9">9</div>
+    <div @click="accumNumber" class="button 7">7</div>
+    <div @click="accumNumber" class="button 8">8</div>
+    <div @click="accumNumber" class="button 9">9</div>
     <div @click="del" class="button del">DEL</div>
-    <div @click="stackNumber" class="button 4">4</div>
-    <div @click="stackNumber" class="button 5">5</div>
-    <div @click="stackNumber" class="button 6">6</div>
-    <div @click="stackOperator" class="button plus">+</div>
-    <div @click="stackNumber" class="button 1">1</div>
-    <div @click="stackNumber" class="button 2">2</div>
-    <div @click="stackNumber" class="button 3">3</div>
-    <div @click="stackOperator" class="button minus">-</div>
-    <div @click="stackNumber" class="button dot">.</div>
-    <div @click="stackNumber" class="button 0">0</div>
-    <div @click="stackOperator" class="button slash">/</div>
-    <div @click="stackOperator" class="button x">x</div>
+    <div @click="accumNumber" class="button 4">4</div>
+    <div @click="accumNumber" class="button 5">5</div>
+    <div @click="accumNumber" class="button 6">6</div>
+    <div @click="accumOperator" class="button plus">+</div>
+    <div @click="accumNumber" class="button 1">1</div>
+    <div @click="accumNumber" class="button 2">2</div>
+    <div @click="accumNumber" class="button 3">3</div>
+    <div @click="accumOperator" class="button minus">-</div>
+    <div @click="accumNumber" class="button dot">.</div>
+    <div @click="accumNumber" class="button 0">0</div>
+    <div @click="accumOperator" class="button slash">/</div>
+    <div @click="accumOperator" class="button x">x</div>
     <div @click="reset" class="button reset">RESET</div>
-    <div @click="stackOperator" class="button equal">=</div>
+    <div @click="accumOperator" class="button equal">=</div>
   </div>
 </div>
 </main>
@@ -51,9 +51,9 @@ const app = Vue.createApp({
   data() {
     return {
       theme: "main-theme",
-      actual: "0",
-      operator: null,
-      stack: "0",
+      stack: [0],
+      dot: false,
+      operator: "",
     };
   },
   methods: {
@@ -80,47 +80,58 @@ const app = Vue.createApp({
       this.theme = themes[parseInt(t.innerHTML)];
     },
     reset() {
-      console.log(this.actual, this.result, this.operator);
-      this.actual = "0";
-      this.result = "0";
-      this.operator = null;
+      this.stack = [];
+      this.dot = false;
     },
     del() {
-      this.actual = this.actual.slice(0, -1);
-      if (this.actual === "") {
-        this.actual = "0";
-      }
-    },
-    stackNumber(ev) {
-      const n = ev.target.innerHTML;
-      if (n === ".") {
-        this.actual = `${this.actual}${n}`;
+      if (this.stack.length === 0) {
         return;
       }
-      this.actual = Number(`${this.actual}${n}`).toString();
+      const n = this.stack[0].toString();
+      this.stack[0] = Number(n.slice(0, -1));
     },
-    stackOperator(ev) {
+    accumNumber(ev) {
+      const letter = ev.target.innerHTML;
+      if (letter === ".") {
+        this.dot = true;
+        return;
+      }
+
+      const n = this.stack[this.stack.length - 1];
+      if (this.dot) {
+        this.stack[this.stack.length - 1] = Number(`${n}.${letter}`);
+        this.dot = false;
+        return;
+      }
+      this.stack[this.stack.length - 1] = Number(`${n}${letter}`);
+      console.log(this.stack);
+    },
+    accumOperator(ev) {
       let op = ev.target.innerHTML;
       if (op === "x") {
         op = "*";
-      } else if (op === "=") {
-        op = this.operator;
-      } else if (!this.operator) {
-        this.operator = op;
-        this.stack = this.actual;
-        this.actual = "0";
+      }
+
+      console.log(this.stack);
+
+      if (this.stack.length === 1) {
+        this.stack.push(op);
+        return;
+      } else if (this.stack.length === 2) {
+        this.stack[1] = op;
         return;
       }
 
-      console.log(`${this.actual} ${this.operator} ${this.stack}`);
-
-      if (this.operator) {
-        this.stack = eval(
-          `${this.stack} ${this.operator} ${this.actual}`
-        ).toFixed(8);
+      if (this.stack.length < 3) {
+        return;
       }
-      this.actual = "0";
-      this.operator = op;
+      this.stack = [
+        0,
+        Number(
+          eval(`${this.stack[0]} ${this.stack[1]} ${this.stack[2]}`).toFixed(6)
+        ),
+      ];
+      console.log(this.stack);
     },
   },
   mounted() {
