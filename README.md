@@ -19,7 +19,10 @@ This repository is a collection of all my solutions I submitted at [Frontend Men
   - [qr-code-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/qr-code-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/qr-code-component-main/)]
 
 - Advice Generator
-  - [advice-generator-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/advice-generator-app-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/advice-generator-app-main/)]
+  - [advice-generator-app-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/advice-generator-app-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/advice-generator-app-main/)]
 
 - NFT preview card component
   - [nft-preview-card-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/nft-preview-card-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/nft-preview-card-component-main/)]
+
+- Calculator
+  - [calculator-app-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/calculator-app-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/calculator-app-main/)]

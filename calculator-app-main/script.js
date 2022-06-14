@@ -23,7 +23,7 @@ const app = Vue.createApp({
     </div>
   </div>
   <div class="calculator__screen">
-    {{ this.stack.length > 1 && this.stack[0] === 0 ? this.stack[1]: this.stack[0] }}
+    {{ getNumber() }}
   </div>
   <div class="calculator__controlpad">
     <div @click="accumNumber" class="button 7">7</div>
@@ -57,6 +57,14 @@ const app = Vue.createApp({
     };
   },
   methods: {
+    getNumber() {
+      if (this.stack.length === 0) {
+        return "0";
+      }
+      return `${this.stack.length > 2 ? this.stack[2] : this.stack[0]}${
+        this.dot ? "." : ""
+      }`;
+    },
     switchTheme(ev) {
       const themes = { 1: "main-theme", 2: "light-theme", 3: "dark-theme" };
       const t = ev.target;
@@ -74,7 +82,6 @@ const app = Vue.createApp({
           this.theme = "light-theme";
         }
         localStorage.theme = this.theme;
-        console.log(this.theme);
         return;
       }
       this.theme = themes[parseInt(t.innerHTML)];
@@ -87,24 +94,42 @@ const app = Vue.createApp({
       if (this.stack.length === 0) {
         return;
       }
+
+      if (this.dot) {
+        this.dot = false;
+        return;
+      }
       const n = this.stack[0].toString();
-      this.stack[0] = Number(n.slice(0, -1));
+      this.stack[0] = n.slice(0, -1);
+
+      if (this.stack[0].slice(-1) !== ".") {
+        this.stack[0] = Number(this.stack[0]);
+      }
     },
     accumNumber(ev) {
       const letter = ev.target.innerHTML;
+      const pos = this.stack.length > 1 ? 2 : 0;
+
       if (letter === ".") {
+        // Already have a dot in the number
+        if (!Number.isInteger(this.stack[pos])) {
+          return;
+        }
         this.dot = true;
         return;
       }
 
-      const n = this.stack[this.stack.length - 1];
+      const n = this.stack[pos] || "0";
       if (this.dot) {
-        this.stack[this.stack.length - 1] = Number(`${n}.${letter}`);
+        this.stack[pos] = `${n}.${letter}`;
         this.dot = false;
-        return;
+      } else {
+        this.stack[pos] = `${n}${letter}`;
       }
-      this.stack[this.stack.length - 1] = Number(`${n}${letter}`);
-      console.log(this.stack);
+
+      if (this.stack[pos].slice(-2) !== ".0") {
+        this.stack[pos] = Number(this.stack[pos]);
+      }
     },
     accumOperator(ev) {
       let op = ev.target.innerHTML;
@@ -112,26 +137,35 @@ const app = Vue.createApp({
         op = "*";
       }
 
-      console.log(this.stack);
-
+      // Only one number in the stack
       if (this.stack.length === 1) {
         this.stack.push(op);
-        return;
-      } else if (this.stack.length === 2) {
+      }
+
+      // They want to change the operator
+      if (this.stack.length === 2 && op !== "=") {
         this.stack[1] = op;
         return;
+      }
+
+      // No operator defined yet
+      if (!this.stack[1] && op !== "=") {
+        this.stack[1] = op;
       }
 
       if (this.stack.length < 3) {
         return;
       }
+
       this.stack = [
-        0,
         Number(
           eval(`${this.stack[0]} ${this.stack[1]} ${this.stack[2]}`).toFixed(6)
         ),
       ];
-      console.log(this.stack);
+
+      if (op !== "=") {
+        this.stack.push(op);
+      }
     },
   },
   mounted() {
