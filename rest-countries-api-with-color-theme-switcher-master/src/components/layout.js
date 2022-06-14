@@ -10,6 +10,9 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
+import Search from "./search"
+import RegionSelector from "./region-selector"
+
 import "normalize.css"
 import "./layout.css"
 
@@ -27,6 +30,8 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Search />
+      <RegionSelector />
       <main>{children}</main>
     </>
   )
