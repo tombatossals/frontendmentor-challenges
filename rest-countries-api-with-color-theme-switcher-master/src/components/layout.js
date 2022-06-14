@@ -30,9 +30,11 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Search />
-      <RegionSelector />
-      <main>{children}</main>
+      <div className="bg-gray-50">
+        <Search />
+        <RegionSelector />
+        <main>{children}</main>
+      </div>
     </>
   )
 }
