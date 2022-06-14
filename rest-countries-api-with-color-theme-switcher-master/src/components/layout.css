@@ -1,0 +1,18 @@
+root,
+.light-mode {
+  --text: hsl(200, 15%, 8%);
+  --element: hsl(0, 0%, 100%);
+  --input: hsl(0, 0%, 52%);
+  --background: hsl(0, 0%, 98%);
+}
+
+.dark-mode {
+  --text: hsl(0, 0%, 100%);
+  --element: hsl(209, 23%, 22%);
+  --background: hsl(207, 26%, 17%);
+}
+
+html {
+  font: 14px "Nunito Sans", sans-serif;
+  padding: 1rem;
+}
