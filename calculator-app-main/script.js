@@ -1,6 +1,6 @@
 const app = Vue.createApp({
   template: `
-  <main id="app"
+  <main
   :class="[theme]"
   >
   <div
