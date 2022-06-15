@@ -12,6 +12,8 @@ root,
   --background: hsl(207, 26%, 17%);
 }
 
-html {
+body {
   font: 14px "Nunito Sans", sans-serif;
+  background: #fafafa;
+  min-height: 100vh;
 }

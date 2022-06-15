@@ -30,11 +30,13 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="bg-gray-50">
+      <div className="m-10 flex">
         <Search />
-        <RegionSelector />
-        <main>{children}</main>
+        <div className="flex-1 flex justify-end">
+          <RegionSelector />
+        </div>
       </div>
+      <main>{children}</main>
     </>
   )
 }

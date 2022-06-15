@@ -5,7 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@react-icons/all-files": "^4.1.0",
+    "@headlessui/react": "^1.6.4",
+    "@heroicons/react": "^1.0.6",
     "autoprefixer": "^10.4.7",
     "gatsby": "^4.16.0",
     "gatsby-plugin-gatsby-cloud": "^4.16.0",

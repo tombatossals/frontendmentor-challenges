@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-postcss",
+    require.resolve(`./plugins/gatsby-source-countries`),
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
