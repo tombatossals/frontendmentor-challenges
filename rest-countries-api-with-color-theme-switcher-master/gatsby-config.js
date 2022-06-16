@@ -9,6 +9,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     "gatsby-plugin-postcss",
     require.resolve(`./plugins/gatsby-source-countries`),
+    {
+      resolve: `gatsby-plugin-remote-images`,
+      options: {
+        nodeType: "Country",
+        imagePath: "flags.png",
+      },
+    },
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,

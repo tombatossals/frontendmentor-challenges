@@ -30,7 +30,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="m-10 flex">
+      <div className="m-10 md:flex">
         <Search />
         <div className="flex-1 flex justify-end">
           <RegionSelector />
