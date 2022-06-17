@@ -1,19 +1,32 @@
-root,
-.light-mode {
-  --text: hsl(200, 15%, 8%);
-  --element: hsl(0, 0%, 100%);
-  --input: hsl(0, 0%, 52%);
-  --background: hsl(0, 0%, 98%);
+:root,
+.light {
+  color: hsl(200, 15%, 8%);
+  background: hsl(0, 0%, 98%);
 }
 
-.dark-mode {
-  --text: hsl(0, 0%, 100%);
-  --element: hsl(209, 23%, 22%);
-  --background: hsl(207, 26%, 17%);
+.dark {
+  color: hsl(0, 0%, 100%);
+  background: hsl(207, 26%, 17%);
+}
+
+.light .element {
+  background: hsl(0, 0%, 100%);
+}
+
+.dark .element {
+  background: hsl(209, 23%, 22%);
+  color: hsl(0, 0%, 100%);
+}
+
+.light ::placeholder {
+  color: hsl(0, 0%, 52%);
+}
+
+.dark ::placeholder {
+  color: hsl(0, 0%, 100%);
 }
 
 body {
   font: 14px "Nunito Sans", sans-serif;
-  background: #fafafa;
   min-height: 100vh;
 }

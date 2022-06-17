@@ -16,13 +16,4 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-  result.data.allCountry.nodes.forEach(node => {
-    createPage({
-      path: `/regions/${node.slug.region}/${node.slug.country}`,
-      component: countryTemplate,
-      context: {
-        slug: node.slug,
-      },
-    })
-  })
 }

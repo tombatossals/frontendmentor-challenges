@@ -27,17 +27,23 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const [theme, toggleTheme] = React.useState("light")
+
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div className="m-10 md:flex">
+    <div className={theme}>
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        theme={theme}
+        toggleTheme={toggleTheme}
+      />
+      <div className="m-10 sm:flex">
         <Search />
-        <div className="flex-1 flex justify-end">
+        <div className="flex-1 flex sm:justify-end mt-8 sm:mt-0">
           <RegionSelector />
         </div>
       </div>
       <main>{children}</main>
-    </>
+    </div>
   )
 }
 
