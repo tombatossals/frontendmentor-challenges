@@ -9,8 +9,8 @@ const Card = ({ data }) => {
     return
   }
   return (
-    <div className="max-w element rounded mb-4 shadow-md overflow-hidden">
-      <Link to={`/region/${data.region.toLowerCase()}/${data.slug.country}`}>
+    <div className="max-w element rounded mb-4 shadow-md overflow-hidden hover:brightness-95">
+      <Link to={`/country/${data.slug}`}>
         <GatsbyImage
           className="w-full h-48 aspect-auto"
           image={image}
@@ -18,7 +18,7 @@ const Card = ({ data }) => {
         />
       </Link>
       <div className="p-5">
-        <Link to={`/region/${data.region}${data.slug.country}`}>
+        <Link to={`/country/${data.slug}`}>
           <h5 className="mb-2 text-xl font-bold tracking-tight">
             {data.name.common}
           </h5>

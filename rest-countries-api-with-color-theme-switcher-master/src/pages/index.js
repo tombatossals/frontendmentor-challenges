@@ -1,29 +1,33 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import Card from "../components/card"
-import Layout from "../components/layout"
 import Seo from "../components/seo"
+import MainBar from "../components/mainbar"
+const IndexPage = ({ data }) => {
+  const [query, setQuery] = React.useState("")
 
-const IndexPage = ({ data }) => (
-  <Layout>
-    <Seo title="Home" />
-    <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
-      {data.allCountry.nodes.map(country => (
-        <Card key={country.id} data={country} />
-      ))}
-    </div>
-  </Layout>
-)
+  return (
+    <>
+      <Seo title="Home" />
+      <MainBar query={query} setQuery={setQuery} />
+
+      <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
+        {data.allCountry.nodes
+          .filter(country => country.name.common.toLowerCase().includes(query))
+          .map(country => (
+            <Card key={country.id} data={country} />
+          ))}
+      </div>
+    </>
+  )
+}
 
 export const query = graphql`
   query {
     allCountry {
       nodes {
         id
-        slug {
-          country
-          region
-        }
+        slug
         name {
           common
         }
@@ -35,7 +39,7 @@ export const query = graphql`
             gatsbyImageData(
               width: 200
               placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
+              formats: [AUTO, WEBP]
             )
           }
         }

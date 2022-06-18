@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+import React from "react"
+import { ThemeContextProvider } from "./src/context/theme"
+import Layout from "./src/components/layout"
 
-// You can delete this file if you're not using it
+import "./src/styles/global.css"
+
+export const wrapRootElement = ({ element, props }) => (
+  <ThemeContextProvider>
+    <Layout {...props}>{element}</Layout>
+  </ThemeContextProvider>
+)

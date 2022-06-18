@@ -7,10 +7,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allCountry {
         nodes {
-          slug {
-            country
-            region
-          }
+          slug
           region
         }
       }

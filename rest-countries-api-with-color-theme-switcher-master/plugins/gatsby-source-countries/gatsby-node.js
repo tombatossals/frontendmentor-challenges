@@ -20,6 +20,8 @@ const slugify = str => {
   return str
 }
 
+const regions = []
+
 exports.sourceNodes = async ({
   actions,
   createContentDigest,
@@ -32,11 +34,11 @@ exports.sourceNodes = async ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
-  const regions = []
   data
     .map(
       ({
         name,
+        cca3,
         region,
         subregion,
         tld,
@@ -49,11 +51,13 @@ exports.sourceNodes = async ({
       }) => ({
         slug: slugify(name.common),
         name,
+        cca3,
         region,
+        regionSlug: slugify(region),
         subregion,
         tld,
-        currencies,
-        languages,
+        currencies: currencies && Object.values(currencies).map(c => c.name),
+        languages: languages && Object.values(languages),
         borders,
         capital,
         population,
@@ -72,15 +76,17 @@ exports.sourceNodes = async ({
           contentDigest: createContentDigest(country),
         },
       })
-      if (!regions.includes(slugify(country.region))) {
+      if (!regions.includes(country.region)) {
         const region = { name: country.region, slug: slugify(country.region) }
+        regions.push(country.region)
+
         await createNode({
-          ...country,
+          ...region,
           id: createNodeId(`${REGION_NODE_TYPE}-${region.slug}`),
           parent: null,
           children: [],
           internal: {
-            type: COUNTRY_NODE_TYPE,
+            type: REGION_NODE_TYPE,
             content: JSON.stringify(region),
             contentDigest: createContentDigest(region),
           },

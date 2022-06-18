@@ -2,11 +2,13 @@
 .light {
   color: hsl(200, 15%, 8%);
   background: hsl(0, 0%, 98%);
+  transition: all 0.2s ease;
 }
 
 .dark {
   color: hsl(0, 0%, 100%);
   background: hsl(207, 26%, 17%);
+  transition: all 0.2s ease;
 }
 
 .light .element {
@@ -29,4 +31,12 @@
 body {
   font: 14px "Nunito Sans", sans-serif;
   min-height: 100vh;
+}
+
+.app {
+  min-width: 370px;
+}
+
+.country {
+  font-size: 16px;
 }
