@@ -5,8 +5,9 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import { Fragment } from "react"
 import { ChevronDownIcon, XIcon } from "@heroicons/react/solid"
+import { RegionContext } from "../context/region"
 
-const RegionSelector = ({ region }) => {
+const RegionSelector = () => {
   const { allRegion } = useStaticQuery(graphql`
     query {
       allRegion {
@@ -17,6 +18,8 @@ const RegionSelector = ({ region }) => {
       }
     }
   `)
+
+  const { region } = React.useContext(RegionContext)
 
   allRegion.nodes.sort((a, b) =>
     a.slug > b.slug ? 1 : b.slug > a.slug ? -1 : 0

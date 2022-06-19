@@ -3,22 +3,35 @@ import { graphql } from "gatsby"
 import Card from "../components/card"
 import Seo from "../components/seo"
 import MainBar from "../components/mainbar"
-const IndexPage = ({ data }) => {
-  const [query, setQuery] = React.useState("")
+import { SearchContext } from "../context/search"
+import { RegionContext } from "../context/region"
+
+const IndexPage = ({ data, location }) => {
+  const { setRegion } = React.useContext(RegionContext)
+
+  React.useEffect(() => {
+    setRegion("")
+  }, [setRegion])
 
   return (
-    <>
-      <Seo title="Home" />
-      <MainBar query={query} setQuery={setQuery} />
+    <SearchContext.Consumer>
+      {({ search }) => (
+        <>
+          <Seo title="Home" />
+          <MainBar />
 
-      <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
-        {data.allCountry.nodes
-          .filter(country => country.name.common.toLowerCase().includes(query))
-          .map(country => (
-            <Card key={country.id} data={country} />
-          ))}
-      </div>
-    </>
+          <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20">
+            {data.allCountry.nodes
+              .filter(country =>
+                country.name.common.toLowerCase().includes(search)
+              )
+              .map(country => (
+                <Card key={country.id} data={country} />
+              ))}
+          </div>
+        </>
+      )}
+    </SearchContext.Consumer>
   )
 }
 
@@ -37,7 +50,7 @@ export const query = graphql`
         localImage {
           childImageSharp {
             gatsbyImageData(
-              width: 200
+              width: 480
               placeholder: BLURRED
               formats: [AUTO, WEBP]
             )

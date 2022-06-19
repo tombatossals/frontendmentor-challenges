@@ -6,7 +6,6 @@ import Header from "./header"
 import "normalize.css"
 import "./layout.css"
 import { ThemeContext } from "../context/theme"
-
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -17,12 +16,6 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
-  const { theme, toggleTheme } = React.useContext(ThemeContext)
-
-  React.useEffect(() => {
-    localStorage.getItem("theme") === "dark" && toggleTheme()
-  }, [])
 
   return (
     <ThemeContext.Consumer>

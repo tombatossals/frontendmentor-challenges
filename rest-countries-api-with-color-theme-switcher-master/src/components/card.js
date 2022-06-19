@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { formatNumber } from "../lib/utils"
 
 const Card = ({ data }) => {
   const image = getImage(data.localImage)
@@ -18,7 +19,7 @@ const Card = ({ data }) => {
         />
       </Link>
       <div className="p-5">
-        <Link to={`/country/${data.slug}`}>
+        <Link to={"`/country/${data.slug}`}">
           <h5 className="mb-2 text-xl font-bold tracking-tight">
             {data.name.common}
           </h5>
@@ -26,7 +27,7 @@ const Card = ({ data }) => {
 
         <ul>
           <li>
-            <strong>Population:</strong> {data.population}
+            <strong>Population:</strong> {formatNumber(data.population)}
           </li>
           <li>
             <strong>Region:</strong>{" "}

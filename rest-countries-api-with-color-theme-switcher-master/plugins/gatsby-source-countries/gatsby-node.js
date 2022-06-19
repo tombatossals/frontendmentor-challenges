@@ -35,6 +35,7 @@ exports.sourceNodes = async ({
     .catch(err => console.log(err))
 
   data
+    .slice(1, 3)
     .map(
       ({
         name,
@@ -50,7 +51,14 @@ exports.sourceNodes = async ({
         flags,
       }) => ({
         slug: slugify(name.common),
-        name,
+        name: {
+          common: name.common,
+          nativeName: name.nativeName
+            ? Object.entries(name.nativeName)
+                .map(c => `${c[1].common} (${c[0].toUpperCase()})`)
+                .join(", ")
+            : name.common,
+        },
         cca3,
         region,
         regionSlug: slugify(region),
@@ -61,7 +69,7 @@ exports.sourceNodes = async ({
         borders,
         capital,
         population,
-        flags,
+        flag: flags.png.replace("w320", "w1280"),
       })
     )
     .map(async country => {

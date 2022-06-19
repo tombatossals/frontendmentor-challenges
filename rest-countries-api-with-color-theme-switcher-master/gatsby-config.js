@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-remote-images`,
       options: {
         nodeType: "Country",
-        imagePath: "flags.png",
+        imagePath: "flag",
       },
     },
     `gatsby-plugin-image`,
