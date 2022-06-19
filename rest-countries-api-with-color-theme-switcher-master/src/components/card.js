@@ -19,7 +19,7 @@ const Card = ({ data }) => {
         />
       </Link>
       <div className="p-5">
-        <Link to={"`/country/${data.slug}`}">
+        <Link to={`/country/${data.slug}`}>
           <h5 className="mb-2 text-xl font-bold tracking-tight">
             {data.name.common}
           </h5>
