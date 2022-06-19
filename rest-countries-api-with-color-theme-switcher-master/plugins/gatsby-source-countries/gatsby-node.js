@@ -1,5 +1,3 @@
-const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
-
 const COUNTRY_NODE_TYPE = `Country`
 const REGION_NODE_TYPE = `Region`
 
@@ -20,8 +18,6 @@ const slugify = str => {
   return str
 }
 
-const regions = []
-
 exports.sourceNodes = async ({
   actions,
   createContentDigest,
@@ -34,8 +30,28 @@ exports.sourceNodes = async ({
     .then(res => res.json())
     .catch(err => console.log(err))
 
+  const regions = [...new Set(data.map(c => c.region))]
+
+  regions.map(async r => {
+    const region = {
+      name: r,
+      slug: slugify(r),
+    }
+
+    await createNode({
+      ...region,
+      id: createNodeId(`${REGION_NODE_TYPE}-${region.slug}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: REGION_NODE_TYPE,
+        content: JSON.stringify(region),
+        contentDigest: createContentDigest(region),
+      },
+    })
+  })
+
   data
-    .slice(1, 3)
     .map(
       ({
         name,
@@ -73,7 +89,7 @@ exports.sourceNodes = async ({
       })
     )
     .map(async country => {
-      await createNode({
+      const node = await createNode({
         ...country,
         id: createNodeId(`${COUNTRY_NODE_TYPE}-${country.slug}`),
         parent: null,
@@ -84,21 +100,5 @@ exports.sourceNodes = async ({
           contentDigest: createContentDigest(country),
         },
       })
-      if (!regions.includes(country.region)) {
-        const region = { name: country.region, slug: slugify(country.region) }
-        regions.push(country.region)
-
-        await createNode({
-          ...region,
-          id: createNodeId(`${REGION_NODE_TYPE}-${region.slug}`),
-          parent: null,
-          children: [],
-          internal: {
-            type: REGION_NODE_TYPE,
-            content: JSON.stringify(region),
-            contentDigest: createContentDigest(region),
-          },
-        })
-      }
     })
 }
