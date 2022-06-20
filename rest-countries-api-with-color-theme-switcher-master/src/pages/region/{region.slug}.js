@@ -7,7 +7,6 @@ import { RegionContext } from "../../context/region"
 import { SearchContext } from "../../context/search"
 
 const IndexPage = ({ data, location }) => {
-  const [query, setQuery] = React.useState("")
   const { setRegion } = React.useContext(RegionContext)
 
   React.useEffect(() => {
@@ -19,14 +18,13 @@ const IndexPage = ({ data, location }) => {
     <SearchContext.Consumer>
       {({ search }) => (
         <>
-          <Seo title={data.allCountry.nodes[0].region} />
+          {data.allCountry.nodes.length > 0 && (
+            <Seo title={data.allCountry.nodes[0].region} />
+          )}
 
-          <MainBar query={query} setQuery={setQuery} />
+          <MainBar />
           <div className="mx-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-20">
             {data.allCountry.nodes
-              .filter(country =>
-                country.name.common.toLowerCase().includes(query)
-              )
               .filter(country =>
                 country.name.common.toLowerCase().includes(search)
               )

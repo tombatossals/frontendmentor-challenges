@@ -6,6 +6,7 @@ import Header from "./header"
 import "normalize.css"
 import "./layout.css"
 import { ThemeContext } from "../context/theme"
+
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
@@ -17,15 +18,20 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const { theme, toggleTheme } = React.useContext(ThemeContext)
+
+  React.useEffect(() => {
+    const t = localStorage.getItem("theme")
+    if (t === "dark") {
+      toggleTheme()
+    }
+  }, [])
+
   return (
-    <ThemeContext.Consumer>
-      {({ theme }) => (
-        <div className={`${theme} app min-h-screen flex flex-col`}>
-          <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-          <main className="min-h-full flex-1 flex flex-col">{children}</main>
-        </div>
-      )}
-    </ThemeContext.Consumer>
+    <div className={`${theme} app min-h-screen flex flex-col`}>
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <main className="min-h-full flex-1 flex flex-col">{children}</main>
+    </div>
   )
 }
 

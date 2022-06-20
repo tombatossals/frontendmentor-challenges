@@ -7,6 +7,11 @@ import { ThemeContext } from "../context/theme"
 const Header = ({ siteTitle }) => {
   const { theme, toggleTheme } = React.useContext(ThemeContext)
 
+  const toggle = () => {
+    const t = toggleTheme()
+    localStorage.setItem("theme", t)
+  }
+
   return (
     <header className="flex px-10 py-8 shadow-lg element">
       <Link className="flex-1 text-base font-bold" to="/">
@@ -14,7 +19,7 @@ const Header = ({ siteTitle }) => {
       </Link>
       <div
         className="font-semibold text-sm flex cursor-pointer"
-        onClick={toggleTheme}
+        onClick={toggle}
         aria-hidden="true"
       >
         {theme === "light" ? (

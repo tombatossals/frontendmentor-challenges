@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react"
 
-const RegionContext = createContext()
+const defaultState = ""
+
+const RegionContext = createContext(defaultState)
 
 const RegionContextProvider = ({ children }) => {
   const [region, setRegion] = useState("")

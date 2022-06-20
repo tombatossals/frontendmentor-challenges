@@ -1,6 +1,8 @@
 import React, { useState, createContext } from "react"
 
-const SearchContext = createContext()
+const defaultState = ""
+
+const SearchContext = createContext(defaultState)
 
 const SearchContextProvider = ({ children }) => {
   const [search, setSearch] = useState("")
