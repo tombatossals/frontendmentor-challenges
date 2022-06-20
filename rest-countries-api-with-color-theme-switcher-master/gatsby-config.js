@@ -1,4 +1,6 @@
 module.exports = {
+  pathPrefix:
+    "/frontendmentor-challenges/rest-countries-api-with-color-theme-switcher-master/public",
   siteMetadata: {
     title: `Where in the world?`,
     description: `frontendmentor.io project`,
