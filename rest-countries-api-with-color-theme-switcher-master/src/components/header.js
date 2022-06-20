@@ -12,6 +12,13 @@ const Header = ({ siteTitle }) => {
     localStorage.setItem("theme", t)
   }
 
+  React.useEffect(() => {
+    if (typeof window === undefined || !window.document) {
+      return
+    }
+    document.body.className = theme === "dark" ? "dark" : "light"
+  }, [theme])
+
   return (
     <header className="flex px-10 py-8 shadow-lg element">
       <Link className="flex-1 text-base font-bold" to="/">

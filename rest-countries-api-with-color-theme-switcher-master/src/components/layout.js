@@ -25,6 +25,11 @@ const Layout = ({ children }) => {
     if (t === "dark") {
       toggleTheme()
     }
+
+    if (typeof window === undefined || !window.document) {
+      return
+    }
+    document.body.className = t === "dark" ? "dark" : "light"
   }, [])
 
   return (

@@ -11,8 +11,6 @@ const ThemeContextProvider = ({ children }) => {
     return newTheme
   }
 
-  document.body.className = theme === "dark" ? "dark" : "light"
-
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

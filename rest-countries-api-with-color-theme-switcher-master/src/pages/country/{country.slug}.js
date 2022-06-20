@@ -21,10 +21,10 @@ const CountryPage = ({ data: { country, allCountry } }) => {
     <>
       <Seo title={country.name.common} />
 
-      <div className="py-10 mx-20 country flex-1 flex flex-col">
+      <div className="py-10 mx-20 country flex flex-col">
         <Link
           to={region ? `/region/${region}` : "/"}
-          className="font-semibold py-2 flex-none px-6 element rounded shadow inline-flex content-center hover:brightness-95"
+          className="font-semibold py-2 px-6 w-28 element rounded shadow flex items-center flex-initial hover:brightness-95"
         >
           <ArrowLeftIcon className="w-4 h-5 mr-2" /> Back
         </Link>
