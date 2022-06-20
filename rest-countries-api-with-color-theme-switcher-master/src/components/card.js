@@ -13,7 +13,7 @@ const Card = ({ data }) => {
     <div className="max-w element rounded mb-4 shadow-md overflow-hidden hover:brightness-95">
       <Link to={`/country/${data.slug}`}>
         <GatsbyImage
-          className="w-full h-48 aspect-auto"
+          className="w-full max-h-72 aspect-auto"
           image={image}
           alt={`${data.name.common} flag}`}
         />

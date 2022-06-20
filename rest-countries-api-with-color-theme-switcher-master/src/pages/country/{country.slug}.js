@@ -21,22 +21,22 @@ const CountryPage = ({ data: { country, allCountry } }) => {
     <>
       <Seo title={country.name.common} />
 
-      <div className="py-10 mx-20 country">
+      <div className="py-10 mx-20 country flex-1 flex flex-col">
         <Link
           to={region ? `/region/${region}` : "/"}
-          className="font-semibold py-2 px-6 element rounded shadow inline-flex content-center hover:brightness-95"
+          className="font-semibold py-2 flex-none px-6 element rounded shadow inline-flex content-center hover:brightness-95"
         >
           <ArrowLeftIcon className="w-4 h-5 mr-2" /> Back
         </Link>
-        <div className="mt-20 lg:flex">
+        <div className="mt-20 xl:flex">
           <GatsbyImage
-            className="w-full max-h-96 flex-1"
+            className="max-w-full max-h-full"
             image={image}
             alt={`${country.name.common} flag}`}
           />
-          <div className="flex-1 lg:pl-20">
+          <div className="flex-2 xl:pl-20">
             <h1 className="font-bold text-2xl my-10">{country.name.common}</h1>
-            <div className="lg:flex">
+            <div className="xl:flex">
               <ul className="flex-1">
                 <li className="mb-3">
                   <strong>Native Name:</strong> {country.name.nativeName}
@@ -59,7 +59,7 @@ const CountryPage = ({ data: { country, allCountry } }) => {
                   </li>
                 )}
               </ul>
-              <ul className="flex-1 mt-10 lg:mt-0">
+              <ul className="flex-1 mt-10 xl:mt-0">
                 <li className="mb-3">
                   <strong>Top Level Domain:</strong> {country.tld}
                 </li>

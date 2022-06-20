@@ -40,3 +40,9 @@ body {
 .country {
   font-size: 16px;
 }
+
+#gatsby-focus-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}

@@ -20,9 +20,9 @@ const Layout = ({ children }) => {
   return (
     <ThemeContext.Consumer>
       {({ theme }) => (
-        <div className={`${theme} app`}>
+        <div className={`${theme} app min-h-screen flex flex-col`}>
           <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-          <main>{children}</main>
+          <main className="min-h-full flex-1 flex flex-col">{children}</main>
         </div>
       )}
     </ThemeContext.Consumer>

@@ -6,9 +6,7 @@ const MainBar = () => {
   return (
     <div className="m-10 sm:flex">
       <Search />
-      <div className="flex-1 flex sm:justify-end mt-8 sm:mt-0">
-        <RegionSelector />
-      </div>
+      <div className="flex-1 flex sm:justify-end mt-8 sm:mt-0"></div>
     </div>
   )
 }
