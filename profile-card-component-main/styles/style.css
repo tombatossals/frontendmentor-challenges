@@ -42,24 +42,6 @@ main {
   z-index: -1;
 }
 
-@media only screen and (min-width: 451px) {
-  .bg1 {
-    position: absolute;
-    top: -400px;
-    left: -300px;
-    transform: rotate(90deg) scale(1);
-    z-index: -1;
-  }
-
-  .bg2 {
-    position: absolute;
-    bottom: -600px;
-    right: -200px;
-    transform: scale(1);
-    z-index: -1;
-  }
-}
-
 .card {
   width: 20rem;
   min-width: 340px;
@@ -140,4 +122,26 @@ main {
   font-size: 1.3rem;
   color: var(--desaturated-blue);
   margin-bottom: 0.4rem;
+}
+
+@media only screen and (min-width: 451px) {
+  .bg1 {
+    position: absolute;
+    top: -400px;
+    left: -300px;
+    transform: rotate(90deg) scale(1);
+    z-index: -1;
+  }
+
+  .bg2 {
+    position: absolute;
+    bottom: -600px;
+    right: -200px;
+    transform: scale(1);
+    z-index: -1;
+  }
+
+  .card {
+    width: 24rem;
+  }
 }
