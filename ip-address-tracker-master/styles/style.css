@@ -1,0 +1,41 @@
+:root {
+  --very-dark-day: hsl(0, 0%, 17%);
+  --dark-gray: hsl(0, 0%, 59%);
+}
+
+html {
+  font: 18px "Rubik", sans-serif;
+}
+
+.header {
+  background: url(../images/pattern-bg.png);
+  color: var(--dark-gray);
+  min-height: 10rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.header__form {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+}
+.header__search {
+  padding: 0.5rem 1rem;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.header__button {
+  background: var(--very-dark-day);
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
