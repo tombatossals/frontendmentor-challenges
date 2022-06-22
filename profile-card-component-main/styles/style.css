@@ -70,7 +70,7 @@ main {
 
 .card__header {
   height: 9rem;
-  background: blue url(../images/bg-pattern-card.svg) repeat 0 0;
+  background: var(--dark-cyan) url(../images/bg-pattern-card.svg) repeat 0 0;
   position: relative;
 }
 
