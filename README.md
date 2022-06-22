@@ -26,3 +26,6 @@ This repository is a collection of all my solutions I submitted at [Frontend Men
 
 - Calculator
   - [calculator-app-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/calculator-app-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/calculator-app-main/)]
+
+- Profile Card Component
+  - [profile-card-component-main](https://github.com/tombatossals/frontendmentor-challenges/tree/main/profile-card-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/profile-card-component-main/)]

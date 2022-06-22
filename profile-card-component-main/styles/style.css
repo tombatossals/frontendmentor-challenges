@@ -1,0 +1,72 @@
+:root {
+  --dark-cyan: hsl(185, 75%, 39%);
+  --desaturated-blue: hsl(229, 23%, 23%);
+  --grayish-blue: hsl(227, 10%, 46%);
+  --dark-gray: hsl(0, 0%, 59%);
+}
+
+body {
+  background: var(--dark-cyan);
+  font: 18px "Kumbh Sans", sans-serif;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.bg1 {
+  position: absolute;
+  top: -400px;
+  left: -300px;
+  transform: rotate(90deg);
+}
+
+.bg2 {
+  position: absolute;
+  bottom: -600px;
+  right: -200px;
+}
+
+.card {
+  width: 25rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.card__header {
+  height: 9rem;
+  background: blue url(../images/bg-pattern-card.svg) repeat 0 0;
+  position: relative;
+}
+
+.card__photo {
+  position: absolute;
+  width: 6rem;
+  height: 6rem;
+  overflow: hidden;
+  border-radius: 3rem;
+  bottom: -3rem;
+  left: calc(50% - 3rem);
+  border: 5px solid white;
+}
+
+.card__photo img {
+  width: 100%;
+  height: 100%;
+}
+
+.card__content {
+  background: white;
+}
+
+.card__content;
