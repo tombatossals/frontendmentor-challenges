@@ -12,15 +12,18 @@ body {
   margin: 0;
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 main {
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  flex: 1;
 }
 
 .bg1 {
@@ -28,19 +31,22 @@ main {
   top: -400px;
   left: -300px;
   transform: rotate(90deg);
+  z-index: -1;
 }
 
 .bg2 {
   position: absolute;
   bottom: -600px;
   right: -200px;
+  z-index: -1;
 }
 
 .card {
-  width: 25rem;
+  width: 23rem;
+  min-width: 370px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: var(--grayish-blue) 0px 7px 39px 0px;
 }
 
 .card__header {
@@ -51,8 +57,8 @@ main {
 
 .card__photo {
   position: absolute;
-  width: 6rem;
-  height: 6rem;
+  width: 5.5rem;
+  height: 5.5rem;
   overflow: hidden;
   border-radius: 3rem;
   bottom: -3rem;
@@ -65,8 +71,54 @@ main {
   height: 100%;
 }
 
-.card__content {
-  background: white;
+.card__title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  color: var(--desaturated-blue);
 }
 
-.card__content;
+.card__age {
+  font-weight: normal;
+  color: var(--dark-gray);
+  margin-left: 0.5rem;
+}
+.card__content {
+  background: white;
+  min-height: 8rem;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2rem;
+  justify-content: center;
+}
+
+.card__subtitle {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--dark-gray);
+  text-align: center;
+  font-weight: normal;
+}
+
+.card__footer {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-size: 0.8rem;
+  color: var(--dark-gray);
+}
+
+.card__footer > div {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.card__number {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: var(--desaturated-blue);
+  margin-bottom: 0.4rem;
+}
