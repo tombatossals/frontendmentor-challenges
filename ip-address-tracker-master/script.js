@@ -5,7 +5,7 @@ const valid_ip = (value) => {
 };
 
 const valid_domain = (value) => {
-  return /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(
+  return /^[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9](?:\.[a-zA-Z]{2,})+$/.test(
     value
   );
 };
@@ -14,6 +14,7 @@ const app = Vue.createApp({
     return {
       map: undefined,
       icon: undefined,
+      layerGroup: undefined,
       type: "ip",
       search: "",
       info: {},
@@ -37,6 +38,8 @@ const app = Vue.createApp({
       this.updateData();
     },
     async updateData() {
+      this.info = {};
+      this.layerGroup.clearLayers();
       const filter =
         this.type === "ip"
           ? `ipAddress=${this.search.trim()}`
@@ -47,9 +50,6 @@ const app = Vue.createApp({
           `https://geo.ipify.org/api/v2/country,city?apiKey=at_w8zWVBSHpnUJ8f4rZM9KT9eq5N0S2&${filter}`,
           {
             mode: "cors",
-            headers: {
-              "Access-Control-Allow-Origin": "*",
-            },
           }
         )
       ).json();
@@ -63,7 +63,7 @@ const app = Vue.createApp({
 
       const location = [data.location.lat, data.location.lng];
       this.map.setView(location, 13);
-      this.marker = L.marker(location, { icon: this.icon }).addTo(this.map);
+      L.marker(location, { icon: this.icon }).addTo(this.layerGroup);
     },
   },
   async mounted() {
@@ -75,8 +75,14 @@ const app = Vue.createApp({
       maxZoom: 19,
       attribution: "© OpenStreetMap",
     }).addTo(this.map);
+    this.layerGroup = L.layerGroup().addTo(this.map);
     this.updateData();
   },
+});
+
+app.component("spinner", {
+  template:
+    '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>',
 });
 
 app.directive("debounce", (el, binding) => debounce(el, binding));

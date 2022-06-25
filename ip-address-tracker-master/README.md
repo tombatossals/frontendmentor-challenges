@@ -47,6 +47,10 @@ Users should be able to:
 - [LeafletJS](https://leafletjs.com/)
 - [VueJS](https://vuejs.org/)
 
+### Useful resources
+
+- [Pure CSS Loaders](https://loading.io/css/)
+
 ## Author
 
 - Website - [tombatossals](https://github.com/tombatossals/frontendmentor-challenges)

@@ -52,8 +52,6 @@ Users should be able to:
 
 - [Battling BEM CSS](https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/) - Useful article about how and when to use BEM CSS methodology.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
 ## Author
 
 - Website - [tombatossals](https://github.com/tombatossals/frontendmentor-challenges)

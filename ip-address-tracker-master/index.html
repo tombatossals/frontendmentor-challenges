@@ -35,6 +35,7 @@
     />
     <link rel="stylesheet" href="styles/normalize.css" type="text/css" />
     <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <link rel="stylesheet" href="styles/spinner.css" type="text/css" />
   </head>
   <body>
     <div id="app">
@@ -54,19 +55,27 @@
           <ul class="header__info">
             <li>
               <h3 class="header__info-title">Ip Address</h3>
-              <p class="header__info-desc">{{info.ip}}</p>
+              <p v-if="info.ip" class="header__info-desc">{{info.ip}}</p>
+              <spinner v-else />
             </li>
             <li id="location">
               <h3 class="header__info-title">Location</h3>
-              <p class="header__info-desc">{{info.location}}</p>
+              <p v-if="info.location" class="header__info-desc">
+                {{info.location}}
+              </p>
+              <spinner v-else />
             </li>
             <li>
               <h3 class="header__info-title">Timezone</h3>
-              <p class="header__info-desc">{{info.timezone}}</p>
+              <p v-if="info.timezone" class="header__info-desc">
+                {{info.timezone}}
+              </p>
+              <spinner v-else />
             </li>
             <li id="isp">
               <h3 class="header__info-title">Isp</h3>
-              <p class="header__info-desc">{{info.isp}}</p>
+              <p v-if="info.isp" class="header__info-desc">{{info.isp}}</p>
+              <spinner v-else />
             </li>
           </ul>
         </div>
