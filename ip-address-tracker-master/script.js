@@ -44,7 +44,13 @@ const app = Vue.createApp({
 
       const data = await (
         await fetch(
-          `https://geo.ipify.org/api/v2/country,city?apiKey=at_w8zWVBSHpnUJ8f4rZM9KT9eq5N0S2&${filter}`
+          `https://geo.ipify.org/api/v2/country,city?apiKey=at_w8zWVBSHpnUJ8f4rZM9KT9eq5N0S2&${filter}`,
+          {
+            mode: "cors",
+            headers: {
+              "Access-Control-Allow-Origin": "*",
+            },
+          }
         )
       ).json();
 
