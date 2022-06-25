@@ -37,18 +37,42 @@
     <link rel="stylesheet" href="styles/style.css" type="text/css" />
   </head>
   <body>
-    <header class="header">
-      <h1>IP Address Tracker</h1>
-      <form class="header__form">
-        <input
-          class="header__search"
-          placeholder="Search for any IP address or domain"
-        />
-        <div class="header__button">
-          <img alt="search" src="images/icon-arrow.svg" />
+    <div id="app">
+      <header class="header">
+        <h1 class="header__title">IP Address Tracker</h1>
+        <form @submit.prevent="executeSearch" class="header__form">
+          <input
+            class="header__search"
+            v-model="search"
+            placeholder="Search for any IP address or domain"
+          />
+          <button class="header__button">
+            <img alt="search" src="images/icon-arrow.svg" />
+          </button>
+        </form>
+        <div class="header__container">
+          <ul class="header__info">
+            <li>
+              <h3 class="header__info-title">Ip Address</h3>
+              <p class="header__info-desc">{{info.ip}}</p>
+            </li>
+            <li id="location">
+              <h3 class="header__info-title">Location</h3>
+              <p class="header__info-desc">{{info.location}}</p>
+            </li>
+            <li>
+              <h3 class="header__info-title">Timezone</h3>
+              <p class="header__info-desc">{{info.timezone}}</p>
+            </li>
+            <li id="isp">
+              <h3 class="header__info-title">Isp</h3>
+              <p class="header__info-desc">{{info.isp}}</p>
+            </li>
+          </ul>
         </div>
-      </form>
-    </header>
+      </header>
+      <main id="map"></main>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
