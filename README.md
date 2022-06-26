@@ -45,4 +45,8 @@ This repository is a collection of all my solutions I submitted at [Frontend Men
   - [ip-address-tracker-master](https://github.com/tombatossals/frontendmentor-challenges/tree/main/ip-address-tracker-master) [[demo](https://tombatossals.github.io/frontendmentor-challenges/ip-address-tracker-master/)]
 
 - Product Preview Card Component
+
   - [product-preview-card-component](https://github.com/tombatossals/frontendmentor-challenges/tree/main/product-preview-card-component-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/product-preview-card-component-main/)]
+
+- E-commerce product page
+  - [ecommerce-product-page](https://github.com/tombatossals/frontendmentor-challenges/tree/main/ecommerce-product-page-main) [[demo](https://tombatossals.github.io/frontendmentor-challenges/ecommerce-product-page-main/)]

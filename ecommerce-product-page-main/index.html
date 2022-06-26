@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles/normalize.css" type="text/css" />
+    <link rel="stylesheet" href="styles/style.css" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <header class="p-4 flex items-end">
+      <div class="mr-4"><img alt="Menu" src="images/icon-menu.svg" /></div>
+      <div class="flex-1"><img alt="Logo" src="images/logo.svg" /></div>
+      <div class="mr-4"><img alt="Cart" src="images/icon-cart.svg" /></div>
+      <div>
+        <img class="w-6 h-6" alt="Profile" src="images/image-avatar.png" />
+      </div>
+    </header>
+    <main class="flex flex-col">
+      <div class="gallery">
+        <img alt="Product" src="images/image-product-1.jpg" />
+      </div>
+      <div class="content p-4">
+        <p
+          class="font-bold mb-2 uppercase text-xs tracking-widest"
+          style="color: var(--orange)"
+        >
+          sneaker company
+        </p>
+        <h1 class="text-2xl font-bold tracking-wide mb-4">
+          Fall Limited Edition Sneakers
+        </h1>
+        <p
+          class="text-sm tracking-wide mb-6"
+          style="color: var(--dark-grayish-blue)"
+        >
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <div class="price flex items-center mb-4">
+          <div class="font-bold text-2xl mr-4">$125.00</div>
+          <div
+            class="text-xs rounded-md py-1 px-2 font-bold"
+            style="background: var(--pale-orange); color: var(--orange)"
+          >
+            50%
+          </div>
+          <div
+            class="justify-self-end flex-1 text-right font-bold line-through text-base"
+            style="color: var(--grayish-blue)"
+          >
+            $250.0
+          </div>
+        </div>
+        <div
+          class="flex rounded-xl py-3 px-4 items-center font-bold mb-2"
+          style="background: var(--light-grayish-blue)"
+        >
+          <img class="h-1 w-3" alt="Minus" src="images/icon-minus.svg" />
+          <div class="flex-1 text-center text-md">0</div>
+          <img class="h-3 w-3" alt="Minus" src="images/icon-plus.svg" />
+        </div>
+        <div
+          class="flex items-center rounded-lg py-3 px-4 justify-center"
+          style="background: var(--orange)"
+        >
+          <img class="mr-2 h-4 w-4" alt="Cart" src="images/icon-cart.svg" />
+          Add to cart
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
