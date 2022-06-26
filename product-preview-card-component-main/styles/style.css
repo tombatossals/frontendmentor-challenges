@@ -1,0 +1,120 @@
+:root {
+  --cream: hsl(30, 38%, 92%);
+  --dark-cyan: hsl(158, 36%, 37%);
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--cream);
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin: 1.5rem 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--dark-cyan);
+}
+
+.card__content {
+  padding: 2rem;
+  flex-basis: 50%;
+}
+
+.card__caption {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #aaa;
+  letter-spacing: 3px;
+}
+
+.card__image {
+  background: url("../images/image-product-mobile.jpg");
+  background-size: cover;
+  min-height: 15rem;
+}
+
+.card__title {
+  margin-top: 0.5rem;
+  color: #222;
+  font-family: "Fraunces", serif;
+}
+
+.card__description {
+  color: #aaa;
+  font-size: 0.8rem;
+  line-height: 1.2rem;
+}
+
+.card__price {
+  display: flex;
+  align-items: center;
+}
+
+.card__actual-price {
+  font-family: "Fraunces", serif;
+  color: var(--dark-cyan);
+  font-size: 2rem;
+  font-weight: bold;
+  flex: 1;
+}
+
+.card__original-price {
+  flex: 1;
+  text-decoration: line-through;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #aaa;
+}
+
+.card__button {
+  border: 0;
+  outline: none;
+  background: var(--dark-cyan);
+  padding: 1rem;
+  text-align: center;
+  color: white;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card__icon-cart {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 800px) {
+  .card {
+    flex-direction: row;
+    max-width: 36rem;
+  }
+  .card__image {
+    flex: 1;
+    background: url("../images/image-product-desktop.jpg");
+    background-position: center;
+    min-height: 28rem;
+    background-size: cover;
+  }
+
+  .card__caption {
+    margin: 0rem 0 1rem;
+  }
+  .card__price {
+    margin: 2rem 0;
+  }
+
+  .card__original-price {
+    text-align: center;
+  }
+}
