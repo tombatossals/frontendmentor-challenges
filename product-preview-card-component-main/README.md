@@ -33,8 +33,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/tree/main/product-preview-card-component)
-- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/product-preview-card-component)
+- Solution URL: [here](https://github.com/tombatossals/frontendmentor-challenges/tree/main/product-preview-card-component-main)
+- Live Site URL: [here](https://tombatossals.github.io/frontendmentor-challenges/product-preview-card-component-main)
 
 ## My process
 
