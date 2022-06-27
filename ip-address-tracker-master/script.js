@@ -85,5 +85,4 @@ app.component("spinner", {
     '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>',
 });
 
-app.directive("debounce", (el, binding) => debounce(el, binding));
 app.mount("#app");

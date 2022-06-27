@@ -26,67 +26,189 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <header class="p-4 flex items-end">
-      <div class="mr-4"><img alt="Menu" src="images/icon-menu.svg" /></div>
-      <div class="flex-1"><img alt="Logo" src="images/logo.svg" /></div>
-      <div class="mr-4"><img alt="Cart" src="images/icon-cart.svg" /></div>
-      <div>
-        <img class="w-6 h-6" alt="Profile" src="images/image-avatar.png" />
-      </div>
-    </header>
-    <main class="flex flex-col">
-      <div class="gallery">
-        <img alt="Product" src="images/image-product-1.jpg" />
-      </div>
-      <div class="content p-4">
-        <p
-          class="font-bold mb-2 uppercase text-xs tracking-widest"
-          style="color: var(--orange)"
+    <div id="app" class="flex flex-col items-center">
+      <header
+        class="px-6 pt-4 pb-6 md:py-2 relative flex items-end md:items-center md:pb-10 md:mb-20 md:border-b md:my-4 w-full lg:mx-12 md:max-w-6xl"
+      >
+        <div
+          v-if="showCart"
+          class="absolute flex flex-col -right-12 rounded-lg top-16 w-96 h-64 bg-white shadow-2xl z-10"
         >
-          sneaker company
-        </p>
-        <h1 class="text-2xl font-bold tracking-wide mb-4">
-          Fall Limited Edition Sneakers
-        </h1>
-        <p
-          class="text-sm tracking-wide mb-6"
+          <h2 class="font-bold p-6 border-b">Cart</h2>
+          <div
+            class="flex-1 flex items-center justify-center font-bold"
+            v-if="counter === 0"
+          >
+            Your cart is empty.
+          </div>
+          <div class="flex flex-col box-border flex-1 m-4" v-else>
+            <div class="flex flex-1 justify-between items-center">
+              <img
+                class="h-12 w-12 rounded-lg mr-6"
+                v-bind:alt="photos[0].thumb"
+                v-bind:src="photos[0].thumb"
+              />
+              <div class="flex flex-col flex-1 mr-6 font-normal">
+                <div class="text-sm" style="color: var(--grayish-blue)">
+                  {{title}}
+                </div>
+                <div style="color: var(--grayish-blue)">
+                  ${{price}} x {{counter}}
+                  <span class="font-bold text-black ml-1"
+                    >${{price*counter}}</span
+                  >
+                </div>
+              </div>
+              <img
+                v-on:click="counter=0"
+                class="h-4 w-4 cursor-pointer hover:opacity-60"
+                alt="delete"
+                src="images/icon-delete.svg"
+              />
+            </div>
+            <button
+              v-on:click="addToCart"
+              class="flex items-center rounded-lg py-4 justify-center text-white hover:opacity-60"
+              style="background: var(--orange)"
+            >
+              Checkout
+            </button>
+          </div>
+        </div>
+        <div class="mr-4 lg:hidden">
+          <img alt="Menu" src="images/icon-menu.svg" />
+        </div>
+        <div class="flex-1 lg:flex-none mr-12 cursor-pointer">
+          <img alt="Logo" src="images/logo.svg" />
+        </div>
+        <ul
+          class="flex-1 text-sm hidden md:flex"
           style="color: var(--dark-grayish-blue)"
         >
-          These low-profile sneakers are your perfect casual wear companion.
-          Featuring a durable rubber outer sole, they’ll withstand everything
-          the weather can offer.
-        </p>
-        <div class="price flex items-center mb-4">
-          <div class="font-bold text-2xl mr-4">$125.00</div>
-          <div
-            class="text-xs rounded-md py-1 px-2 font-bold"
-            style="background: var(--pale-orange); color: var(--orange)"
-          >
-            50%
-          </div>
-          <div
-            class="justify-self-end flex-1 text-right font-bold line-through text-base"
-            style="color: var(--grayish-blue)"
-          >
-            $250.0
-          </div>
+          <li class="mr-8 cursor-pointer">Collections</li>
+          <li class="mr-8 cursor-pointer">Men</li>
+          <li class="mr-8 cursor-pointer">Women</li>
+          <li class="mr-8 cursor-pointer">About</li>
+          <li class="mr-8 cursor-pointer">Contact</li>
+        </ul>
+        <div
+          v-on:click="showCart=!showCart"
+          class="mr-4 md:mr-12 cursor-pointer"
+        >
+          <img alt="Cart" src="images/icon-cart.svg" />
         </div>
         <div
-          class="flex rounded-xl py-3 px-4 items-center font-bold mb-2"
-          style="background: var(--light-grayish-blue)"
+          class="cursor-pointer border-2 border-white hover:border-orange-500 transition rounded-full"
         >
-          <img class="h-1 w-3" alt="Minus" src="images/icon-minus.svg" />
-          <div class="flex-1 text-center text-md">0</div>
-          <img class="h-3 w-3" alt="Minus" src="images/icon-plus.svg" />
+          <img
+            class="w-6 h-6 md:w-12 md:h-12"
+            alt="Profile"
+            src="images/image-avatar.png"
+          />
         </div>
-        <div
-          class="flex items-center rounded-lg py-3 px-4 justify-center"
-          style="background: var(--orange)"
-        >
-          <img class="mr-2 h-4 w-4" alt="Cart" src="images/icon-cart.svg" />
-          Add to cart
+      </header>
+      <main class="flex flex-col md:flex-row md:mx-24 md:max-w-6xl">
+        <div class="relative md:flex-1 md:px-8 lg:pl-4 lg:pr-16">
+          <div>
+            <div
+              class="absolute left-4 top-32 md:hidden bg-white w-8 h-8 rounded-2xl flex items-center justify-center"
+            >
+              <img class="h-3 w-2" src="images/icon-previous.svg" />
+            </div>
+            <div
+              class="absolute right-4 top-32 md:hidden bg-white w-8 h-8 rounded-2xl flex items-center justify-center"
+            >
+              <img class="h-3 w-2" src="images/icon-next.svg" />
+            </div>
+            <img
+              class="max-h-64 md:max-h-full md:rounded-2xl w-full object-cover"
+              v-bind:alt="actualPhoto && actualPhoto.image"
+              v-bind:src="actualPhoto && actualPhoto.image"
+            />
+          </div>
+          <ul class="hidden md:flex md:justify-between mt-6">
+            <li
+              v-for="(photo, index) in photos"
+              class="rounded-xl overflow-hidden cursor-pointer transition"
+              v-bind:class="{'mr-6': index < 3, 'border-2': photo === actualPhoto}"
+              style="border-color: var(--orange)"
+            >
+              <img
+                v-on:click="() => { this.actualPhoto = photo }"
+                v-bind:alt="photo.thumb"
+                v-bind:src="photo.thumb"
+                class="hover:opacity-30"
+                v-bind:class="{'opacity-30': photo === actualPhoto}"
+              />
+            </li>
+          </ul>
         </div>
-      </div>
-    </main>
+        <div class="content p-4 md:flex-1 xl:px-16 md:mt-12">
+          <p
+            class="font-bold mb-2 uppercase text-xs md:text-md tracking-widest"
+            style="color: var(--orange)"
+          >
+            sneaker company
+          </p>
+          <h1
+            class="text-2xl md:text-4xl font-bold tracking-wide mb-4 md:mb-12"
+          >
+            {{title}}
+          </h1>
+          <p
+            class="text-sm md:text-base tracking-wide mb-6"
+            style="color: var(--dark-grayish-blue)"
+          >
+            These low-profile sneakers are your perfect casual wear companion.
+            Featuring a durable rubber outer sole, they’ll withstand everything
+            the weather can offer.
+          </p>
+          <div class="price flex items-center mb-4 md:mb-8 flex-wrap">
+            <div class="font-bold text-2xl mr-4">${{price}}</div>
+            <div
+              class="text-xs rounded-md py-1 px-2 font-bold"
+              style="background: var(--pale-orange); color: var(--orange)"
+            >
+              {{discount}}%
+            </div>
+            <div
+              class="justify-self-end flex-1 mt-3 text-right font-bold line-through text-base md:text-left md:basis-full"
+              style="color: var(--grayish-blue)"
+            >
+              ${{originalPrice}}
+            </div>
+          </div>
+          <div class="flex flex-1 flex-col items-center md:flex-row">
+            <div
+              class="flex rounded-xl flex-0 w-full py-3 px-4 items-center font-bold mb-2 md:mb-0 md:w-32 md:mr-4"
+              style="background: var(--light-grayish-blue)"
+            >
+              <img
+                class="h-1 w-3 cursor-pointer hover:opacity-60"
+                v-on:click="counter > 0 ? counter-- : 0"
+                alt="Minus"
+                src="images/icon-minus.svg"
+              />
+              <div class="flex-1 text-center text-md">{{counter}}</div>
+              <img
+                class="h-3 w-3 cursor-pointer hover:opacity-60"
+                v-on:click="counter++"
+                alt="Minus"
+                src="images/icon-plus.svg"
+              />
+            </div>
+            <button
+              v-on:click="addToCart"
+              class="flex items-center rounded-lg py-3 justify-center text-white w-full flex-1 shadow-2xl hover:opacity-60"
+              style="background: var(--orange)"
+            >
+              <img class="mr-2 h-4 w-4" alt="Cart" src="images/icon-cart.svg" />
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
