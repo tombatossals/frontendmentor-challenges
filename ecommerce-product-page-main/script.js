@@ -1,8 +1,9 @@
 const app = Vue.createApp({
   data() {
     return {
-      counter: 0,
+      counter: 1,
       price: 125.0,
+      numberOnCart: 0,
       discount: 50,
       originalPrice: 250.0,
       title: "Fall Limited Edition Sneakers",
@@ -31,14 +32,43 @@ const app = Vue.createApp({
   methods: {
     addToCart() {
       if (this.counter > 0) {
+        this.numberOnCart = this.numberOnCart + this.counter;
+        this.counter = 1;
         this.showCart = true;
+      }
+    },
+    hideCart(ev, el) {
+      const validElements = [
+        "addToCart",
+        "cartIcon",
+        "deleteIcon",
+        "plusIcon",
+        "minusIcon",
+      ];
+      if (
+        validElements.indexOf(ev.target.id) === -1 &&
+        validElements.indexOf(ev.target.parentElement.id) === -1
+      ) {
+        this.showCart = false;
       }
     },
   },
   async mounted() {
     this.actualPhoto = this.photos[0];
-    this.showCart = true;
-    this.counter = 1;
+  },
+});
+
+app.directive("click-outside", {
+  mounted(el, binding) {
+    el.clickOutsideEvent = function (event) {
+      if (!(el === event.target || el.contains(event.target))) {
+        binding.value(event, el);
+      }
+    };
+    document.body.addEventListener("click", el.clickOutsideEvent);
+  },
+  unmounted(el) {
+    document.body.removeEventListener("click", el.clickOutsideEvent);
   },
 });
 
