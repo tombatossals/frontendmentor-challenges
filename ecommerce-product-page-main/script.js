@@ -2,12 +2,14 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 1,
+      modal: false,
       price: 125.0,
       numberOnCart: 0,
       discount: 50,
       originalPrice: 250.0,
       title: "Fall Limited Edition Sneakers",
       actualPhoto: undefined,
+      actualModalPhoto: undefined,
       showCart: false,
       photos: [
         {
@@ -37,7 +39,16 @@ const app = Vue.createApp({
         this.showCart = true;
       }
     },
-    hideCart(ev, el) {
+    hideModal(ev) {
+      if (["photo"].indexOf(ev.target.id)) {
+        this.modal = false;
+      }
+    },
+    showModal(photo) {
+      this.actualModalPhoto = photo;
+      this.modal = true;
+    },
+    hideCart(ev) {
       const validElements = [
         "addToCart",
         "cartIcon",
@@ -55,6 +66,7 @@ const app = Vue.createApp({
   },
   async mounted() {
     this.actualPhoto = this.photos[0];
+    this.actualModalPhoto = this.photos[0];
   },
 });
 
